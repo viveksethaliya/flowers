@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowerBulk Pro - Premium Bulk Flowers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">🌸 FlowerBulk Pro</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showHomePage()">Home</a></li>
+                <li><a href="#" onclick="showOrderPage()">Order Now</a></li>
+                <li><a href="#" onclick="toggleCart()" class="cart-icon">
+                    🛒 <span class="cart-count" id="cartCount">0</span>
+                </a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">☰</div>
+        </nav>
+    </header>
+
+    <!-- Home Page -->
+    <div id="homePage">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Premium Bulk Flowers</h1>
+                <p>Fresh, beautiful flowers for all your wholesale needs</p>
+                <a href="#" class="cta-button" onclick="showOrderPage()">Order Now</a>
+            </div>
+        </section>
+
+        <section class="featured">
+            <div class="container">
+                <h2 class="section-title">Featured Products</h2>
+                <div class="featured-grid">
+                    <div class="featured-card">
+                        <div class="card-image" style="background-image: url('1.jpg')"></div>
+                        <div class="card-content">
+                            <h3>Premium Roses</h3>
+                            <p>Fresh red roses perfect for special occasions</p>
+                            <div class="price">₹120/dozen</div>
+                        </div>
+                    </div>
+                    <div class="featured-card">
+                        <div class="card-image" style="background-image: url('3.jpg')"></div>
+                        <div class="card-content">
+                            <h3>Sunflowers</h3>
+                            <p>Bright yellow sunflowers to light up any event</p>
+                            <div class="price">₹80/dozen</div>
+                        </div>
+                    </div>
+                    <div class="featured-card">
+                        <div class="card-image" style="background-image: url('2.jpg')"></div>
+                        <div class="card-content">
+                            <h3>Mixed Tulips</h3>
+                            <p>Colorful tulips in various beautiful shades</p>
+                            <div class="price">₹150/dozen</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Order Page -->
+    <div id="orderPage" class="hidden">
+        <section class="order-page">
+            <div class="container">
+                <h2 class="section-title">All Products</h2>
+                <div class="filters">
+                    <select id="eventFilter" onchange="filterProducts()">
+                        <option value="all">All Events</option>
+                        <option value="wedding">Wedding</option>
+                        <option value="festival">Festival</option>
+                        <option value="decoration">Decoration</option>
+                        <option value="gift">Gift</option>
+                    </select>
+                    <select id="sortBy" onchange="sortProducts()">
+                        <option value="name">Sort by Name</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                    </select>
+                </div>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p>Your cart is empty</p>
+        </div>
+        <div class="cart-total" id="cartTotal">
+            Total: ₹0
+        </div>
+        <button class="checkout-btn" onclick="orderFromCart()">Order via WhatsApp</button>
+    </div>
+    <!-- Floating Cart Button -->
+    <div class="floating-cart" onclick="toggleCart()">
+        🛒 <span class="cart-count" id="floatingCartCount">0</span>
+    </div>
+    <script src="script.js"></script>
+    <!-- v3.2 -->
+</body>
+</html>
