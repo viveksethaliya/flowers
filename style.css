@@ -1,0 +1,121 @@
+:root {
+  --beige: #f5f0e6;
+  --ivory: #fffdf8;
+  --soft-gold: #d7b88c;
+  --olive: #a9a48b;
+  --stone-gray: #7d7c7a;
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--ivory);
+  color: var(--stone-gray);
+}
+
+/* Hero Section */
+.hero {
+  background: url('https://images.unsplash.com/photo-1526045612212-70caf35c14df') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.hero .overlay {
+  background: rgba(245, 240, 230, 0.8);
+  text-align: center;
+  padding: 2rem;
+  border-radius: 16px;
+}
+.brand {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  color: var(--soft-gold);
+}
+.tagline {
+  margin: 1rem 0;
+  font-style: italic;
+}
+.order-btn {
+  background: var(--soft-gold);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 30px;
+}
+
+/* About Section */
+.about {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: var(--beige);
+}
+.about h2 {
+  font-family: var(--font-title);
+  color: var(--olive);
+}
+
+/* Footer */
+footer {
+  background: var(--stone-gray);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Order Page */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--beige);
+}
+.order-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.4fr;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+.order-section h2 {
+  font-family: var(--font-title);
+  color: var(--olive);
+}
+.products {
+  display: grid;
+  gap: 1rem;
+}
+.product {
+  border: 1px solid var(--olive);
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--ivory);
+}
+.product button {
+  background: var(--soft-gold);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.cart {
+  border-left: 2px solid var(--olive);
+  padding-left: 1rem;
+}
+.cart ul {
+  list-style: none;
+  padding: 0;
+}
+.order-now {
+  background: var(--soft-gold);
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
