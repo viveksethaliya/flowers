@@ -13,11 +13,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            
+
         }
+
         html {
-  scroll-behavior: smooth;
-}
+            scroll-behavior: smooth;
+        }
 
 
         :root {
@@ -107,11 +108,14 @@
             background-color: var(--beige);
             padding: 5rem 2rem;
             text-align: center;
+            position: relative;
         }
 
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
@@ -158,6 +162,45 @@
         section {
             padding: 4rem 2rem;
         }
+
+        section.hero {
+            background: url('background2.jpg');
+            /* This creates a subtle shadow inside the bottom edge */
+            box-shadow: inset 0 -10px 15px -10px rgba(0, 0, 0, 0.3);
+
+        }
+
+        section.hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.6);
+            /* soft overlay for readability */
+            z-index: 1;
+        }
+
+        .about-section {
+            background: url('background.jpg') center/cover no-repeat;
+            background-attachment: fixed;
+            /* optional: gives a nice parallax effect */
+            position: relative;
+            padding: 5rem 2rem;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.8);
+            /* soft overlay for readability */
+            z-index: 1;
+        }
+
+        .about-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
 
         .section-title {
             font-family: 'Playfair Display', serif;
@@ -1057,7 +1100,7 @@
             </div>
         </section>
 
-        <section>
+        <section class="about-section">
             <div class="container">
                 <h2 class="section-title">About Fleur Vine</h2>
                 <p
@@ -1070,12 +1113,19 @@
                 <br>
                 <p
                     style="text-align: center; max-width: 700px; margin: 0 auto; color: var(--stone); font-size: 1.05rem; line-height: 1.8;">
-                    At Fleur Vine, we believe flowers speak a universal language of emotion — one that transcends words and conveys warmth, affection, and sophistication. From delicate single-stem gifts wrapped with care to opulent bulk orders that transform entire venues, each arrangement is crafted to tell a story of abundance and refinement. Our artisans blend color, texture, and fragrance into harmonious compositions that elevate every occasion.
+                    At Fleur Vine, we believe flowers speak a universal language of emotion — one that transcends words
+                    and conveys warmth, affection, and sophistication. From delicate single-stem gifts wrapped with care
+                    to opulent bulk orders that transform entire venues, each arrangement is crafted to tell a story of
+                    abundance and refinement. Our artisans blend color, texture, and fragrance into harmonious
+                    compositions that elevate every occasion.
                 </p>
                 <br>
                 <p
                     style="text-align: center; max-width: 700px; margin: 0 auto; color: var(--stone); font-size: 1.05rem; line-height: 1.8;">
-                    Whether you’re looking to express love, celebrate a milestone, or create a memorable atmosphere, Fleur Vine ensures every petal, leaf, and ribbon aligns perfectly with your vision. Step into a world where nature’s beauty meets timeless artistry — welcome to Fleur Vine, where every bloom tells a story of elegance and abundance.
+                    Whether you’re looking to express love, celebrate a milestone, or create a memorable atmosphere,
+                    Fleur Vine ensures every petal, leaf, and ribbon aligns perfectly with your vision. Step into a
+                    world where nature’s beauty meets timeless artistry — welcome to Fleur Vine, where every bloom tells
+                    a story of elegance and abundance.
                 </p>
             </div>
         </section>
