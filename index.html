@@ -13,7 +13,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            
         }
+        html {
+  scroll-behavior: smooth;
+}
+
 
         :root {
             --beige: #f5f1ed;
@@ -1027,7 +1032,7 @@
             <div class="logo" onclick="goHome()">Fleur Vine</div>
             <nav>
                 <a onclick="showPage('home')">Home</a>
-                <a onclick="showPage('orders')">Orders</a>
+                <a onclick="showPage('orders')">All Flowers</a>
                 <a onclick="showPage('about')">About</a>
                 <div class="cart-icon" onclick="toggleCart()">
                     🛒
@@ -1036,7 +1041,7 @@
             </nav>
             <div class="mobile-nav" id="mobileNav">
                 <a onclick="showPage('home'); toggleMobileMenu()">Home</a>
-                <a onclick="showPage('orders'); toggleMobileMenu()">Orders</a>
+                <a onclick="showPage('orders'); toggleMobileMenu()">All Flowers</a>
                 <a onclick="showPage('about'); toggleMobileMenu()">About</a>
             </div>
         </div>
@@ -1062,19 +1067,15 @@
                     perfectly match your style. From intimate small gifts to grand bulk orders, we ensure every
                     arrangement tells a beautiful story.
                 </p>
-                                <p
+                <br>
+                <p
                     style="text-align: center; max-width: 700px; margin: 0 auto; color: var(--stone); font-size: 1.05rem; line-height: 1.8;">
-                    Fleur Vine brings together the finest flowers for every occasion. Whether you're celebrating a
-                    wedding, hosting a reception, or giving a thoughtful gift, we curate abundant, elegant blooms that
-                    perfectly match your style. From intimate small gifts to grand bulk orders, we ensure every
-                    arrangement tells a beautiful story.
+                    At Fleur Vine, we believe flowers speak a universal language of emotion — one that transcends words and conveys warmth, affection, and sophistication. From delicate single-stem gifts wrapped with care to opulent bulk orders that transform entire venues, each arrangement is crafted to tell a story of abundance and refinement. Our artisans blend color, texture, and fragrance into harmonious compositions that elevate every occasion.
                 </p>
-                                <p
+                <br>
+                <p
                     style="text-align: center; max-width: 700px; margin: 0 auto; color: var(--stone); font-size: 1.05rem; line-height: 1.8;">
-                    Fleur Vine brings together the finest flowers for every occasion. Whether you're celebrating a
-                    wedding, hosting a reception, or giving a thoughtful gift, we curate abundant, elegant blooms that
-                    perfectly match your style. From intimate small gifts to grand bulk orders, we ensure every
-                    arrangement tells a beautiful story.
+                    Whether you’re looking to express love, celebrate a milestone, or create a memorable atmosphere, Fleur Vine ensures every petal, leaf, and ribbon aligns perfectly with your vision. Step into a world where nature’s beauty meets timeless artistry — welcome to Fleur Vine, where every bloom tells a story of elegance and abundance.
                 </p>
             </div>
         </section>
@@ -1219,6 +1220,7 @@
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => page.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function goHome() {
