@@ -67,6 +67,11 @@
             letter-spacing: 1.5px;
         }
 
+        .logo .star {
+            font-size: 1.5rem;
+            
+        }
+
         nav {
             display: flex;
             gap: 2.5rem;
@@ -1117,7 +1122,7 @@
     <!-- Header -->
     <header>
         <div class="header-container">
-            <div class="logo" onclick="goHome()">Fleur Vine</div>
+            <div class="logo" onclick="goHome()"><i>Fleur <span class="star">✦</span> Vine</i></div>
             <nav>
                 <a onclick="showPage('home')">Home</a>
                 <a onclick="showPage('about')">About</a>
@@ -1213,6 +1218,30 @@
                         <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">🌍 Export Services</h3>
                         <p style="color: var(--stone); margin-bottom: 1rem;">International flower export with quality assurance and timely delivery worldwide.</p>
                         <button style="background: var(--gold); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;" onclick="openWhatsApp()">Contact Us</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 4rem 2rem; background: var(--ivory);">
+            <div class="container">
+                <h2 class="section-title">🚚 Delivery Options</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🚂</div>
+                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Train Parcel</h3>
+                        <p style="color: var(--stone);">Fast + economical delivery option for nationwide shipping</p>
+                    </div>
+
+                    <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🚛</div>
+                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Road Transport</h3>
+                        <p style="color: var(--stone);">Local and nearby delivery with careful handling</p>
+                    </div>
+                    <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">✈️</div>
+                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Air Cargo</h3>
+                        <p style="color: var(--stone);">Urgent delivery with extra charges for time-sensitive orders</p>
                     </div>
                 </div>
             </div>
@@ -1345,16 +1374,61 @@
     <script>
         // Products data
         const products = [
-            { id: 1, name: "Premium Red Roses", image: "1.jpg", description: "Fresh red roses perfect for special occasions", events: ["wedding", "gift"] },
-            { id: 2, name: "Bright Sunflowers", image: "3.jpg", description: "Bright yellow sunflowers to light up any event", events: ["decoration", "festival"] },
-            { id: 3, name: "Mixed Tulips", image: "2.jpg", description: "Colorful tulips in various beautiful shades", events: ["gift", "wedding"] },
-            { id: 4, name: "White Lilies", image: "wl.jpg", description: "Elegant white lilies for sophisticated events", events: ["wedding", "decoration"] },
-            { id: 5, name: "Pink Carnations", image: "pc.jpg", description: "Delicate pink carnations for gentle occasions", events: ["gift", "wedding"] },
-            { id: 6, name: "Purple Orchids", image: "po.jpg", description: "Exotic purple orchids for luxury events", events: ["decoration", "wedding"] },
-            { id: 7, name: "Yellow Marigolds", image: "ym.jpg", description: "Traditional yellow marigolds for festivals", events: ["festival", "decoration"] },
-            { id: 8, name: "Orange Gerberas", image: "og.jpg", description: "Vibrant orange gerberas for cheerful occasions", events: ["decoration", "gift"] },
-            { id: 9, name: "Blue Hydrangeas", image: "bh.jpg", description: "Beautiful blue hydrangeas for elegant decor", events: ["decoration", "wedding"] },
-            { id: 10, name: "Mixed Bouquet", image: "mb.jpg", description: "Assorted flowers in a beautiful arrangement", events: ["wedding", "gift", "decoration"] }
+            // International Flowers
+            { id: 1, name: "Red Rose", image: "1.jpg", description: "Classic red roses for romantic occasions", events: ["wedding", "gift"] },
+            { id: 2, name: "Pink Rose", image: "2.jpg", description: "Soft pink roses for gentle expressions", events: ["wedding", "gift"] },
+            { id: 3, name: "White Rose", image: "3.jpg", description: "Pure white roses for elegant events", events: ["wedding", "decoration"] },
+            { id: 4, name: "Yellow Rose", image: "4.jpg", description: "Bright yellow roses for friendship", events: ["gift", "decoration"] },
+            { id: 5, name: "Orange Rose", image: "5.jpg", description: "Vibrant orange roses for enthusiasm", events: ["gift", "decoration"] },
+            { id: 6, name: "Peach Rose", image: "6.jpg", description: "Delicate peach roses for warmth", events: ["wedding", "gift"] },
+            { id: 7, name: "Red Carnation", image: "7.jpg", description: "Bold red carnations for passion", events: ["wedding", "gift"] },
+            { id: 8, name: "White Carnation", image: "8.jpg", description: "Pure white carnations for remembrance", events: ["wedding", "decoration"] },
+            { id: 9, name: "Pink Carnation", image: "9.jpg", description: "Sweet pink carnations for affection", events: ["gift", "wedding"] },
+            { id: 10, name: "Yellow Carnation", image: "10.jpg", description: "Cheerful yellow carnations for joy", events: ["gift", "decoration"] },
+            { id: 11, name: "Purple Carnation", image: "11.jpg", description: "Royal purple carnations for elegance", events: ["wedding", "decoration"] },
+            { id: 12, name: "Mixed Gerbera", image: "12.jpg", description: "Colorful gerberas in multiple vibrant colors", events: ["decoration", "gift"] },
+            { id: 13, name: "Spider Chrysanthemum", image: "13.jpg", description: "Unique spider-type chrysanthemums", events: ["decoration", "festival"] },
+            { id: 14, name: "Button Chrysanthemum", image: "14.jpg", description: "Small button-type chrysanthemums", events: ["decoration", "festival"] },
+            { id: 15, name: "Dendrobium Orchid", image: "15.jpg", description: "Elegant dendrobium orchids", events: ["wedding", "decoration"] },
+            { id: 16, name: "Mokara Orchid", image: "16.jpg", description: "Exotic mokara orchids", events: ["wedding", "decoration"] },
+            { id: 17, name: "Cymbidium Orchid", image: "17.jpg", description: "Premium cymbidium orchids", events: ["wedding", "decoration"] },
+            { id: 18, name: "Gladiolus", image: "18.jpg", description: "Tall gladiolus spikes for dramatic arrangements", events: ["decoration", "wedding"] },
+            { id: 19, name: "Asiatic Lily", image: "19.jpg", description: "Beautiful asiatic lilies", events: ["wedding", "decoration"] },
+            { id: 20, name: "Oriental Lily", image: "20.jpg", description: "Fragrant oriental lilies", events: ["wedding", "decoration"] },
+            { id: 21, name: "Peruvian Lily", image: "21.jpg", description: "Delicate peruvian lilies", events: ["wedding", "gift"] },
+            { id: 22, name: "Anthurium", image: "22.jpg", description: "Exotic anthurium flowers", events: ["decoration", "wedding"] },
+            { id: 23, name: "Bird of Paradise", image: "23.jpg", description: "Stunning bird of paradise flowers", events: ["decoration", "wedding"] },
+            { id: 24, name: "Gypsophila (Baby's Breath)", image: "24.jpg", description: "Delicate baby's breath for filler arrangements", events: ["wedding", "decoration"] },
+            
+            // Indian Flowers
+            { id: 25, name: "Orange Marigold", image: "25.jpg", description: "Traditional orange marigolds for festivals", events: ["festival", "decoration"] },
+            { id: 26, name: "Yellow Marigold", image: "26.jpg", description: "Bright yellow marigolds for celebrations", events: ["festival", "decoration"] },
+            { id: 27, name: "White Marigold", image: "27.jpg", description: "Pure white marigolds for ceremonies", events: ["festival", "decoration"] },
+            { id: 28, name: "Mogra Jasmine", image: "28.jpg", description: "Fragrant mogra jasmine flowers", events: ["festival", "wedding"] },
+            { id: 29, name: "Jui Jasmine", image: "29.jpg", description: "Traditional jui jasmine", events: ["festival", "wedding"] },
+            { id: 30, name: "Tuberose (Rajnigandha)", image: "30.jpg", description: "Highly fragrant tuberose flowers", events: ["wedding", "festival"] },
+            { id: 31, name: "Crossandra (Kanakambaram)", image: "31.jpg", description: "Bright orange crossandra flowers", events: ["festival", "decoration"] },
+            { id: 32, name: "Loose Chrysanthemum", image: "32.jpg", description: "Loose variety chrysanthemums", events: ["festival", "decoration"] },
+            { id: 33, name: "Multi-color Aster", image: "33.jpg", description: "Colorful aster flowers", events: ["decoration", "festival"] },
+            { id: 34, name: "Lotus", image: "34.jpg", description: "Sacred lotus flowers", events: ["festival", "decoration"] },
+            { id: 35, name: "Rose Petals", image: "35.jpg", description: "Fresh rose petals for garlands and decoration", events: ["wedding", "festival"] },
+            
+            // Seasonal/Imported Flowers
+            { id: 36, name: "Tulip", image: "36.jpg", description: "Elegant tulips in various colors", events: ["gift", "wedding"] },
+            { id: 37, name: "Peony", image: "37.jpg", description: "Luxurious peony flowers", events: ["wedding", "gift"] },
+            { id: 38, name: "Hydrangea", image: "38.jpg", description: "Full hydrangea blooms", events: ["wedding", "decoration"] },
+            { id: 39, name: "Calla Lily", image: "39.jpg", description: "Sophisticated calla lilies", events: ["wedding", "decoration"] },
+            { id: 40, name: "Delphinium", image: "40.jpg", description: "Tall delphinium spikes", events: ["wedding", "decoration"] },
+            { id: 41, name: "Ranunculus", image: "41.jpg", description: "Layered ranunculus flowers", events: ["wedding", "gift"] },
+            { id: 42, name: "Lisianthus", image: "42.jpg", description: "Elegant lisianthus blooms", events: ["wedding", "gift"] },
+            { id: 43, name: "Protea", image: "43.jpg", description: "Exotic protea flowers", events: ["decoration", "wedding"] },
+            
+            // Foliage and Fillers
+            { id: 44, name: "Ferns", image: "44.jpg", description: "Fresh green ferns for arrangements", events: ["decoration", "wedding"] },
+            { id: 45, name: "Eucalyptus Leaves", image: "45.jpg", description: "Aromatic eucalyptus foliage", events: ["wedding", "decoration"] },
+            { id: 46, name: "Ruscus", image: "46.jpg", description: "Durable ruscus greenery", events: ["wedding", "decoration"] },
+            { id: 47, name: "Leatherleaf", image: "47.jpg", description: "Classic leatherleaf fern", events: ["wedding", "decoration"] },
+            { id: 48, name: "Palm Leaves", image: "48.jpg", description: "Tropical palm leaves", events: ["decoration", "wedding"] }
         ];
 
         let cart = [];
