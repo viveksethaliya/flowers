@@ -19,3 +19,4 @@ jobs:
         with:
           github_token: ${{ secrets.MY_PAT }}
           publish_dir: ./ # Or the directory containing your website files if not at the root
+          cname: fleurvine.in

@@ -8,6 +8,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -55,12 +57,14 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
+            /* font-family: 'Playfair Display', serif; */
+            font-family: 'Alice', serif;
             font-size: 2.5rem;
             font-weight: 700;
             color: var(--olive);
             letter-spacing: 1px;
             cursor: pointer;
+            letter-spacing: 1.5px;
         }
 
         nav {
@@ -312,6 +316,38 @@
 
         .page.active {
             display: block;
+        }
+
+        /* Flower Confetti */
+        #flower-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 50;
+        }
+
+        .flower {
+            position: absolute;
+            top: -50px;
+            font-size: 24px;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+            opacity: 0.9;
+            will-change: transform, opacity;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+            }
         }
 
         /* Order Page Specific */
@@ -1075,14 +1111,17 @@
 </head>
 
 <body>
+    <!-- Flower Confetti Container -->
+    <div id="flower-container"></div>
+    
     <!-- Header -->
     <header>
         <div class="header-container">
             <div class="logo" onclick="goHome()">Fleur Vine</div>
             <nav>
                 <a onclick="showPage('home')">Home</a>
-                <a onclick="showPage('orders')">All Flowers</a>
                 <a onclick="showPage('about')">About</a>
+                <a onclick="showPage('orders')">All Flowers</a>
                 <div class="cart-icon" onclick="toggleCart()">
                     🛒
                 </div>
@@ -1090,8 +1129,8 @@
             </nav>
             <div class="mobile-nav" id="mobileNav">
                 <a onclick="showPage('home'); toggleMobileMenu()">Home</a>
-                <a onclick="showPage('orders'); toggleMobileMenu()">All Flowers</a>
                 <a onclick="showPage('about'); toggleMobileMenu()">About</a>
+                <a onclick="showPage('orders'); toggleMobileMenu()">All Flowers</a>
             </div>
         </div>
     </header>
@@ -1111,7 +1150,7 @@
                 <h2 class="section-title">Why Choose Fleur Vine?</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
                     <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🌹</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">✨</div>
                         <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Fresh Quality</h3>
                         <p style="color: var(--stone);">Hand-picked fresh flowers delivered daily from our trusted growers</p>
                     </div>
@@ -1122,8 +1161,8 @@
                     </div>
                     <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
                         <div style="font-size: 3rem; margin-bottom: 1rem;">🚚</div>
-                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Fast Delivery</h3>
-                        <p style="color: var(--stone);">Same-day delivery available for orders placed before 2 PM</p>
+                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Reliable Delivery</h3>
+                        <p style="color: var(--stone);">Nationwide delivery with careful handling to ensure freshness</p>
                     </div>
                 </div>
             </div>
@@ -1134,19 +1173,19 @@
                 <h2 class="section-title">Popular Flowers</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
                     <div style="text-align: center; padding: 1.5rem; background: var(--ivory); border-radius: 8px; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                        <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #ff6b6b, #ff8e8e); border-radius: 6px; margin-bottom: 1rem;"></div>
+                        <div style="width: 100%; height: 120px; background-image: url('rose.webp'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 1rem;"></div>
                         <h4 style="color: var(--olive); font-family: 'Playfair Display', serif;">Red Roses</h4>
                     </div>
                     <div style="text-align: center; padding: 1.5rem; background: var(--ivory); border-radius: 8px; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                        <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #ffd93d, #ffed4e); border-radius: 6px; margin-bottom: 1rem;"></div>
-                        <h4 style="color: var(--olive); font-family: 'Playfair Display', serif;">Sunflowers</h4>
+                        <div style="width: 100%; height: 120px; background-image: url('jasmine.webp'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 1rem;"></div>
+                        <h4 style="color: var(--olive); font-family: 'Playfair Display', serif;">Jasmine</h4>
                     </div>
                     <div style="text-align: center; padding: 1.5rem; background: var(--ivory); border-radius: 8px; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                        <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #ff9ff3, #f368e0); border-radius: 6px; margin-bottom: 1rem;"></div>
+                        <div style="width: 100%; height: 120px; background-image: url('Tulips.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 1rem;"></div>
                         <h4 style="color: var(--olive); font-family: 'Playfair Display', serif;">Tulips</h4>
                     </div>
                     <div style="text-align: center; padding: 1.5rem; background: var(--ivory); border-radius: 8px; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                        <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #ffffff, #f1f3f4); border-radius: 6px; margin-bottom: 1rem;"></div>
+                        <div style="width: 100%; height: 120px; background-image: url('white lilies.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 1rem;"></div>
                         <h4 style="color: var(--olive); font-family: 'Playfair Display', serif;">White Lilies</h4>
                     </div>
                 </div>
@@ -1158,21 +1197,21 @@
 
         <section style="padding: 4rem 2rem; background: var(--ivory);">
             <div class="container">
-                <h2 class="section-title">Our Services</h2>
+                <h2 class="section-title">What We Offer</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
                     <div style="padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">🎊 Event Decoration</h3>
-                        <p style="color: var(--stone); margin-bottom: 1rem;">Complete floral decoration services for weddings, parties, and corporate events.</p>
+                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">🌺 Retail Flowers</h3>
+                        <p style="color: var(--stone); margin-bottom: 1rem;">Fresh-cut flowers for personal use, gifts, and small events. Browse our collection and order today.</p>
+                        <button style="background: var(--gold); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;" onclick="showPage('orders')">Shop Now</button>
+                    </div>
+                    <div style="padding: 2rem; background: var(--beige); border-radius: 8px;">
+                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">📦 Wholesale Supply</h3>
+                        <p style="color: var(--stone); margin-bottom: 1rem;">Bulk flower supply for florists, retailers, and event planners at competitive wholesale prices.</p>
                         <button style="background: var(--gold); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;" onclick="openWhatsApp()">Get Quote</button>
                     </div>
                     <div style="padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">🎁 Gift Bouquets</h3>
-                        <p style="color: var(--stone); margin-bottom: 1rem;">Beautiful hand-crafted bouquets perfect for birthdays, anniversaries, and special moments.</p>
-                        <button style="background: var(--gold); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;" onclick="showPage('orders')">Order Now</button>
-                    </div>
-                    <div style="padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">📦 Bulk Orders</h3>
-                        <p style="color: var(--stone); margin-bottom: 1rem;">Wholesale flowers for retailers, event planners, and large-scale celebrations.</p>
+                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">🌍 Export Services</h3>
+                        <p style="color: var(--stone); margin-bottom: 1rem;">International flower export with quality assurance and timely delivery worldwide.</p>
                         <button style="background: var(--gold); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;" onclick="openWhatsApp()">Contact Us</button>
                     </div>
                 </div>
@@ -1553,28 +1592,22 @@
 
         // Add to cart
         function addToCart(productId) {
-            console.log('Adding to cart:', productId); // Debug log
             const product = products.find(p => p.id === productId);
 
             if (!product) {
-                console.error('Product not found:', productId);
                 return;
             }
 
             const existingItem = cart.find(item => item.id === productId);
 
-            if (existingItem) {
-                existingItem.quantity += 1;
-                showToast(`${product.name} quantity updated in cart`);
-            } else {
-                cart.push({ ...product, quantity: 1 });
+            if (!existingItem) {
+                cart.push({ ...product });
                 showToast(`${product.name} added to cart`);
+                updateCartDisplay();
+                animateCartIcon();
+            } else {
+                showToast(`${product.name} already in cart`);
             }
-
-            console.log('Cart after adding:', cart); // Debug log
-            updateCartCount();
-            updateCartDisplay();
-            animateCartIcon();
         }
 
         // Remove from cart
@@ -1623,11 +1656,6 @@
                 <div class="cart-item">
                     <div class="cart-item-info">
                         <div class="cart-item-name">${item.name}</div>
-                        <div class="quantity-controls">
-                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
-                            <span class="quantity">${item.quantity}</span>
-                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
-                        </div>
                     </div>
                 </div>
             `).join('');
@@ -1654,7 +1682,7 @@
         function orderNow(productId) {
             const product = products.find(p => p.id === productId);
             showWhatsAppLoading();
-            const message = `Hi! I would like to order:\n\n${product.name}\nQuantity: 1 dozen\n\nPlease confirm availability and delivery details.`;
+            const message = `Hi! I would like to order:\n\n${product.name}\n\nPlease confirm availability and delivery details.`;
 
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
@@ -1669,14 +1697,13 @@
 
             showWhatsAppLoading();
 
-            let message = "Hi! I would like to order the following items:\n\n";
+            let message = "Hi! I would like to order the following flowers:\n\n";
 
             cart.forEach(item => {
                 message += `${item.name}\n`;
-                message += `Quantity: ${item.quantity} dozen\n\n`;
             });
 
-            message += `Please confirm availability and delivery details.`;
+            message += `\nPlease confirm availability and delivery details.`;
 
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
@@ -1689,6 +1716,55 @@
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
+
+        // Flower Confetti Functions
+        function createFlower(startX) {
+            console.log('createFlower called at', startX);
+            const container = document.getElementById("flower-container");
+            if (!container) {
+                console.log('Container not found!');
+                return;
+            }
+            
+            const flower = document.createElement("div");
+            flower.classList.add("flower");
+
+            const flowers = ["🌸", "🌺", "🌼", "🌷", "💮"];
+            flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+
+            flower.style.left = startX + "px";
+            flower.style.fontSize = (20 + Math.random() * 20) + "px";
+            flower.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+            container.appendChild(flower);
+            console.log('Flower added:', flower);
+
+            setTimeout(() => {
+                if (flower.parentNode) {
+                    flower.parentNode.removeChild(flower);
+                }
+            }, 7000);
+        }
+
+        function startFlowerConfetti() {
+            console.log('startFlowerConfetti called');
+            
+            const leftCorner = 0;
+            const rightCorner = window.innerWidth - 50;
+            
+            const interval = setInterval(() => {
+                createFlower(leftCorner + Math.random() * 150);
+                createFlower(rightCorner - Math.random() * 150);
+            }, 150);
+            
+            setTimeout(() => clearInterval(interval), 4000);
+        }
+
+        // Auto-start confetti on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded, starting confetti in 500ms');
+            setTimeout(startFlowerConfetti, 500);
+        });
     </script>
 </body>
 
