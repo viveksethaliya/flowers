@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fleur Vine - Abundant blooms. Small gifts. Elegant style.</title>
+    <title>Fleur Vine - Premium Bulk Floral Supply for Event Professionals</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
@@ -115,9 +115,31 @@
 
         .hero {
             background-color: var(--beige);
-            padding: 5rem 2rem;
+            padding: 18rem 2rem;
             text-align: center;
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(245, 241, 237, 0.7);
+            z-index: 1;
         }
 
         .hero-content {
@@ -1081,6 +1103,7 @@
             <nav>
                 <a onclick="showPage('home')">Home</a>
                 <a onclick="showPage('about')">About</a>
+                <a onclick="showPage('howitworks')">How It Works</a>
                 <a onclick="showPage('orders')">All Flowers</a>
                 <div class="cart-icon" onclick="toggleCart()">
                     🛒
@@ -1090,6 +1113,7 @@
             <div class="mobile-nav" id="mobileNav">
                 <a onclick="showPage('home'); toggleMobileMenu()">Home</a>
                 <a onclick="showPage('about'); toggleMobileMenu()">About</a>
+                <a onclick="showPage('howitworks'); toggleMobileMenu()">How It Works</a>
                 <a onclick="showPage('orders'); toggleMobileMenu()">All Flowers</a>
             </div>
         </div>
@@ -1098,10 +1122,14 @@
     <!-- HOME PAGE -->
     <div id="home" class="page active">
         <section class="hero">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="vid1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
             <div class="hero-content">
                 <h1>Fleur Vine</h1>
                 <p class="tagline">Fresh-Cut Flowers for Events, Wholesale & Export.</p>
-                <button class="cta-button" onclick="showPage('orders')">Explore Our Collections</button>
+                <button class="cta-button" onclick="showPage('orders')">View Wholesale Catalog</button>
             </div>
         </section>
 
@@ -1111,104 +1139,70 @@
                 <div
                     style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
                     <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">✨</div>
-                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">Fresh
-                            Quality</h3>
-                        <p style="color: var(--stone);">Hand-picked fresh flowers delivered daily from our trusted
-                            growers</p>
-                    </div>
-                    <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">💐</div>
-                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">Custom
-                            Arrangements</h3>
-                        <p style="color: var(--stone);">Personalized floral designs for weddings, events, and special
-                            occasions</p>
-                    </div>
-                    <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🚚</div>
                         <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
-                            Reliable Delivery</h3>
-                        <p style="color: var(--stone);">Nationwide delivery with careful handling to ensure freshness
+                            Farm-Direct Freshness</h3>
+                        <p style="color: var(--stone);">Farm-direct sourcing ensures 24-48 hour freshness upon arrival.
                         </p>
+                    </div>
+                    <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
+                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
+                            High-Volume Capacity</h3>
+                        <p style="color: var(--stone);">No order is too large. We specialize in high-stem-count
+                            fulfillment.</p>
+                    </div>
+                    <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
+                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
+                            Event-Timed Reliability</h3>
+                        <p style="color: var(--stone);">We understand event deadlines. Our logistics are timed for your
+                            setup schedule.</p>
+                    </div>
+                    <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
+                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
+                            Export-Grade Quality</h3>
+                        <p style="color: var(--stone);">A-Grade export quality blooms only. No fillers, no bruised
+                            petals.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section style="padding: 4rem 2rem; background: var(--beige);">
-            <div class="container">
-                <h2 class="section-title">Popular Flowers</h2>
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-                    <div style="text-align: center; padding: 1.5rem; background: var(--ivory); border-radius: 8px; transition: transform 0.3s ease;"
-                        onmouseover="this.style.transform='translateY(-5px)'"
-                        onmouseout="this.style.transform='translateY(0)'">
-                        <div
-                            style="width: 100%; height: 120px; background-image: url('rose.webp'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 1rem;">
-                        </div>
-                        <h4 style="color: var(--olive); font-family: 'Poppins', sans-serif;">Red Roses</h4>
-                    </div>
-                    <div style="text-align: center; padding: 1.5rem; background: var(--ivory); border-radius: 8px; transition: transform 0.3s ease;"
-                        onmouseover="this.style.transform='translateY(-5px)'"
-                        onmouseout="this.style.transform='translateY(0)'">
-                        <div
-                            style="width: 100%; height: 120px; background-image: url('jasmine.webp'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 1rem;">
-                        </div>
-                        <h4 style="color: var(--olive); font-family: 'Poppins', sans-serif;">Jasmine</h4>
-                    </div>
-                    <div style="text-align: center; padding: 1.5rem; background: var(--ivory); border-radius: 8px; transition: transform 0.3s ease;"
-                        onmouseover="this.style.transform='translateY(-5px)'"
-                        onmouseout="this.style.transform='translateY(0)'">
-                        <div
-                            style="width: 100%; height: 120px; background-image: url('Tulips.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 1rem;">
-                        </div>
-                        <h4 style="color: var(--olive); font-family: 'Poppins', sans-serif;">Tulips</h4>
-                    </div>
-                    <div style="text-align: center; padding: 1.5rem; background: var(--ivory); border-radius: 8px; transition: transform 0.3s ease;"
-                        onmouseover="this.style.transform='translateY(-5px)'"
-                        onmouseout="this.style.transform='translateY(0)'">
-                        <div
-                            style="width: 100%; height: 120px; background-image: url('white lilies.jpg'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 1rem;">
-                        </div>
-                        <h4 style="color: var(--olive); font-family: 'Poppins', sans-serif;">White Lilies</h4>
-                    </div>
-                </div>
-                <div style="text-align: center;">
-                    <button class="cta-button" onclick="showPage('orders')">View All Flowers</button>
-                </div>
-            </div>
-        </section>
 
         <section style="padding: 4rem 2rem; background: var(--ivory);">
             <div class="container">
                 <h2 class="section-title">What We Offer</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                    <div style="padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">🌺
-                            Retail Flowers</h3>
-                        <p style="color: var(--stone); margin-bottom: 1rem;">Fresh-cut flowers for personal use, gifts,
-                            and small events. Browse our collection and order today.</p>
+                    <div
+                        style="padding: 2rem; background: var(--beige); border-radius: 8px; display: flex; flex-direction: column;">
+                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">Event
+                            Supply</h3>
+                        <p style="color: var(--stone); margin-bottom: 1rem; flex-grow: 1;">Consistent, high-quality
+                            blooms for
+                            weddings, corporate galas, and large-scale decor.</p>
                         <button
-                            style="background: var(--gold); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;"
-                            onclick="showPage('orders')">Shop Now</button>
+                            style="background: var(--gold); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; margin-top: auto;"
+                            onclick="showPage('orders')">View Catalog</button>
                     </div>
-                    <div style="padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">📦
-                            Wholesale Supply</h3>
-                        <p style="color: var(--stone); margin-bottom: 1rem;">Bulk flower supply for florists, retailers,
-                            and event planners at competitive wholesale prices.</p>
+                    <div
+                        style="padding: 2rem; background: var(--beige); border-radius: 8px; display: flex; flex-direction: column;">
+                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
+                            Wholesale Partnerships</h3>
+                        <p style="color: var(--stone); margin-bottom: 1rem; flex-grow: 1;">Preferred pricing and
+                            priority fulfillment
+                            for recurring event management needs.</p>
                         <button
-                            style="background: var(--gold); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;"
-                            onclick="openWhatsApp()">Get Quote</button>
+                            style="background: var(--gold); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; margin-top: auto;"
+                            onclick="openWhatsApp()">Partner With Us</button>
                     </div>
-                    <div style="padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">🌍
-                            Export Services</h3>
-                        <p style="color: var(--stone); margin-bottom: 1rem;">International flower export with quality
-                            assurance and timely delivery worldwide.</p>
+                    <div
+                        style="padding: 2rem; background: var(--beige); border-radius: 8px; display: flex; flex-direction: column;">
+                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
+                            Cold-Chain Logistics</h3>
+                        <p style="color: var(--stone); margin-bottom: 1rem; flex-grow: 1;">Handled with care from farm
+                            to venue to
+                            ensure maximum vase life.</p>
                         <button
-                            style="background: var(--gold); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;"
-                            onclick="openWhatsApp()">Contact Us</button>
+                            style="background: var(--gold); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; margin-top: auto;"
+                            onclick="openWhatsApp()">Learn More</button>
                     </div>
                 </div>
             </div>
@@ -1216,33 +1210,141 @@
 
         <section style="padding: 4rem 2rem; background: var(--ivory);">
             <div class="container">
-                <h2 class="section-title">🚚 Delivery Options</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <h2 class="section-title">Logistics & Delivery</h2>
+
+                <!-- Packaging & Process -->
+                <div
+                    style="max-width: 900px; margin: 0 auto 3rem; background: var(--beige); padding: 2rem; border-radius: 8px; text-align: center;">
+                    <h3
+                        style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif; font-size: 1.5rem;">
+                        Professional Packaging</h3>
+                    <p style="color: var(--stone); font-size: 1.05rem; line-height: 1.8;">
+                        Every order is wrapped in protective hydration sleeves and corrugated B2B-grade boxes to ensure
+                        your blooms arrive fresh and damage-free. Daily dispatches via Air and Train or road transport
+                        to ensure your
+                        event setup starts with fresh stock.
+                    </p>
+                </div>
+
+                <!-- Delivery Methods -->
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
                     <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🚂</div>
+                        <!-- <div style="font-size: 3rem; margin-bottom: 1rem;">🚂</div> -->
                         <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">Train
                             Parcel</h3>
-                        <p style="color: var(--stone);">Fast + economical delivery option for nationwide shipping</p>
+                        <p style="color: var(--stone);">Fast + economical delivery option for nationwide shipping with
+                            daily dispatches</p>
                     </div>
 
                     <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🚛</div>
+                        <!-- <div style="font-size: 3rem; margin-bottom: 1rem;">🚛</div> -->
                         <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">Road
                             Transport</h3>
-                        <p style="color: var(--stone);">Local and nearby delivery with careful handling</p>
+                        <p style="color: var(--stone);">Professional road logistics for regional delivery, coordinated
+                            to match your event’s specific setup schedule.</p>
                     </div>
                     <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">✈️</div>
+                        <!-- <div style="font-size: 3rem; margin-bottom: 1rem;">✈️</div> -->
                         <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">Air
                             Cargo</h3>
-                        <p style="color: var(--stone);">Urgent delivery with extra charges for time-sensitive orders</p>
+                        <p style="color: var(--stone);">Express delivery for urgent event deadlines and time-sensitive
+                            orders across India</p>
                     </div>
                 </div>
             </div>
         </section>
         <section class="contact-us">
             <p>E-mail : <a href="mailto:fleur.vine@outlook.com">fleur.vine@outlook.com</a> | Phone <a
-                    href="tel:+919313605813">+91 9313605813</a></p>
+                    href="tel:+919316602536">+91 9316602536</a></p>
+        </section>
+    </div>
+
+    <!-- HOW IT WORKS PAGE -->
+    <div id="howitworks" class="page">
+        <section style="padding: 4rem 2rem; background: var(--ivory);">
+            <div class="container">
+                <h2 class="section-title">How to Order: Our B2B Procurement Process</h2>
+
+                <div style="max-width: 900px; margin: 0 auto 3rem; text-align: center;">
+                    <p style="color: var(--stone); font-size: 1.05rem; line-height: 1.8;">
+                        Since we deal with high-volume shipments and large-scale floral contracts, we prioritize
+                        financial security and order precision over automated checkouts. Our four-step process ensures
+                        you get exactly what your event requires.
+                    </p>
+                </div>
+
+                <!-- 4-Step Process -->
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                    <div
+                        style="padding: 2rem; background: var(--beige); border-radius: 8px; border-left: 4px solid var(--gold);">
+                        <h3
+                            style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif; font-size: 1.3rem;">
+                            1. Browse & Build</h3>
+                        <p style="color: var(--stone); line-height: 1.8;">
+                            Explore our extensive catalog of local and international blooms. Use the "Add to Enquiry
+                            List" button to build a list of the specific varieties and stem types required for your
+                            project. There are no upfront costs at this stage.
+                        </p>
+                    </div>
+
+                    <div
+                        style="padding: 2rem; background: var(--beige); border-radius: 8px; border-left: 4px solid var(--gold);">
+                        <h3
+                            style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif; font-size: 1.3rem;">
+                            2. Submit Your Enquiry</h3>
+                        <p style="color: var(--stone); line-height: 1.8;">
+                            Once your list is ready, review it in your "Enquiry List" and click the WhatsApp button.
+                            This sends your specific requirement directly to our procurement desk. No accounts or login
+                            required—just direct business communication.
+                        </p>
+                    </div>
+
+                    <div
+                        style="padding: 2rem; background: var(--beige); border-radius: 8px; border-left: 4px solid var(--gold);">
+                        <h3
+                            style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif; font-size: 1.3rem;">
+                            3. Quote & Market Confirmation</h3>
+                        <p style="color: var(--stone); line-height: 1.8;">
+                            Flower pricing fluctuates based on seasonality and market availability. Within a short
+                            window, our team will provide a formal bulk-rate quote based on the current best market
+                            pricing for your specific volume and event dates.
+                        </p>
+                    </div>
+
+                    <div
+                        style="padding: 2rem; background: var(--beige); border-radius: 8px; border-left: 4px solid var(--gold);">
+                        <h3
+                            style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif; font-size: 1.3rem;">
+                            4. Professional Fulfillment</h3>
+                        <p style="color: var(--stone); line-height: 1.8;">
+                            Upon your approval of the quote, we issue a professional business invoice. To ensure the
+                            security of large-sum transactions, payments are handled via Direct Bank Transfer
+                            (IMPS/NEFT/RTGS). Once confirmed, your flowers are harvested, packed, and dispatched via
+                            your chosen logistics directly to your venue.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Why No Automated Portal -->
+                <div
+                    style="max-width: 900px; margin: 0 auto; background: var(--beige); padding: 2.5rem; border-radius: 8px; border: 2px solid var(--gold);">
+                    <h3
+                        style="color: var(--olive); margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif; font-size: 1.4rem; text-align: center;">
+                        Why we don't use an automated payment portal:</h3>
+                    <ul style="color: var(--stone); font-size: 1.05rem; line-height: 1.8; padding-left: 1.5rem;">
+                        <li style="margin-bottom: 1rem;"><strong style="color: var(--olive);">Security:</strong> We
+                            handle large-scale business transactions that exceed standard consumer portal limits.</li>
+                        <li style="margin-bottom: 1rem;"><strong style="color: var(--olive);">Market Pricing:</strong>
+                            We ensure you get the most competitive wholesale rates on the day of your enquiry, rather
+                            than fixed (and often higher) retail prices.</li>
+                        <li style="margin-bottom: 1rem;"><strong style="color: var(--olive);">Order Accuracy:</strong>
+                            Every event is unique. A human review of your order ensures we have the stock and logistics
+                            capacity to meet your deadline perfectly.</li>
+                    </ul>
+                </div>
+            </div>
         </section>
     </div>
 
@@ -1284,69 +1386,87 @@
     <div id="about" class="page">
         <section class="whatwedo">
             <div class="container">
-                <h2 class="section-title">What we do?</h2>
+                <h2 class="section-title">About Fleur Vine: The Professional Floral Partner</h2>
+
+                <!-- Our Identity -->
                 <div
-                    style="max-width: 1000px; margin: 0 auto; background-color: var(--beige); padding: 3rem; border-radius: 8px; margin-bottom: 20px;">
-                    <p style="color: var(--stone); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        <strong style="color: var(--olive);">Welcome to Fleur Vine</strong> – where every bloom tells a
-                        story of elegance and abundance.
-                    </p>
-                    <p style="color: var(--stone); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        We specialize in curating the finest floral arrangements for every occasion – from intimate
-                        personal gifts to grand receptions and weddings. Our collections are designed with an eye for
-                        elegance and a commitment to quality.
-                    </p>
+                    style="max-width: 1000px; margin: 0 auto; background-color: var(--beige); padding: 3rem; border-radius: 8px; margin-bottom: 2rem;">
+                    <h3
+                        style="color: var(--olive); font-size: 1.5rem; margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif;">
+                        Our Identity</h3>
                     <p style="color: var(--stone); font-size: 1.05rem; line-height: 1.8;">
-                        Whether you're looking for small, thoughtful arrangements or bulk orders for your special
-                        events, Fleur Vine delivers abundant blooms with an elegant style that makes every moment
-                        memorable.
+                        Fleur Vine is a specialized floral procurement partner dedicated exclusively to the event
+                        management and decor industry. Unlike traditional florists, we operate on a strictly B2B model,
+                        stripping away the overhead and distractions of retail to focus on one thing: <strong
+                            style="color: var(--olive);">the reliable supply of high-volume, export-quality fresh
+                            flowers.</strong>
                     </p>
                 </div>
-                <h2 class="section-title">About Fleur Vine</h2>
+
+                <!-- The Backbone of Your Events -->
                 <div
-                    style="max-width: 1000px; margin: 0 auto; background-color: var(--beige); padding: 3rem; border-radius: 8px;">
-                    <p
-                        style="text-align: center;  margin: 0 auto; color: var(--stone); font-size: 1.05rem; line-height: 1.8;">
-                        Fleur Vine brings together the finest flowers for every occasion. Whether you're celebrating a
-                        wedding, hosting a reception, or giving a thoughtful gift, we curate abundant, elegant blooms
-                        that
-                        perfectly match your style. From intimate small gifts to grand bulk orders, we ensure every
-                        arrangement tells a beautiful story.
+                    style="max-width: 1000px; margin: 0 auto; background-color: var(--beige); padding: 3rem; border-radius: 8px; margin-bottom: 2rem;">
+                    <h3
+                        style="color: var(--olive); font-size: 1.5rem; margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif;">
+                        The Backbone of Your Events</h3>
+                    <p style="color: var(--stone); font-size: 1.05rem; line-height: 1.8;">
+                        We understand that for an event manager, flowers aren't just "gifts"—they are critical
+                        infrastructure for your design. A delay or a drop in quality can compromise your entire
+                        production. That is why Fleur Vine has built a supply chain designed for professionals. We
+                        source directly from the finest growers to ensure that when our blooms reach your venue, they
+                        possess the structural integrity and freshness required for large-scale installations.
                     </p>
-                    <br>
-                    <p
-                        style="text-align: center; margin: 0 auto; color: var(--stone); font-size: 1.05rem; line-height: 1.8;">
-                        At Fleur Vine, we believe flowers speak a universal language of emotion — one that transcends
-                        words
-                        and conveys warmth, affection, and sophistication. From delicate single-stem gifts wrapped with
-                        care
-                        to opulent bulk orders that transform entire venues, each arrangement is crafted to tell a story
-                        of
-                        abundance and refinement. Our artisans blend color, texture, and fragrance into harmonious
-                        compositions that elevate every occasion.
+                </div>
+
+                <!-- Why Professionals Choose Fleur Vine -->
+                <div
+                    style="max-width: 1000px; margin: 0 auto; background-color: var(--beige); padding: 3rem; border-radius: 8px; margin-bottom: 2rem;">
+                    <h3
+                        style="color: var(--olive); font-size: 1.5rem; margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif;">
+                        Why Professionals Choose Fleur Vine</h3>
+                    <ul style="color: var(--stone); font-size: 1.05rem; line-height: 1.8; padding-left: 1.5rem;">
+                        <li style="margin-bottom: 1rem;"><strong style="color: var(--olive);">Exclusively B2B:</strong>
+                            We don't sell to individuals. Every stem we source is reserved for our professional
+                            partners, ensuring you always have priority access to the best stock.</li>
+                        <li style="margin-bottom: 1rem;"><strong style="color: var(--olive);">Volume Capacity:</strong>
+                            Whether it is a corporate gala or a multi-day destination wedding, we specialize in
+                            high-stem-count fulfillment without compromising on grade or consistency.</li>
+                        <li style="margin-bottom: 1rem;"><strong style="color: var(--olive);">Quality Control:</strong>
+                            Our flowers undergo a rigorous selection process. We provide the "Export Grade"
+                            standard—sturdy stems, vibrant heads, and uniform coloring—designed to withstand the rigors
+                            of event environments.</li>
+                    </ul>
+                </div>
+
+                <!-- Direct Business Model -->
+                <div
+                    style="max-width: 1000px; margin: 0 auto; background-color: var(--beige); padding: 3rem; border-radius: 8px; margin-bottom: 2rem;">
+                    <h3
+                        style="color: var(--olive); font-size: 1.5rem; margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif;">
+                        Direct Business Model</h3>
+                    <p style="color: var(--stone); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        To maintain the highest level of security for large-scale transactions, we operate on a <strong
+                            style="color: var(--olive);">Quote-to-Invoice</strong> basis. By removing automated payment
+                        portals, we ensure a human-to-human verification of every order, providing the personalized
+                        service and financial transparency that high-value B2B partnerships require.
                     </p>
-                    <br>
                     <p
-                        style="text-align: center; margin: 0 auto; color: var(--stone); font-size: 1.05rem; line-height: 1.8;">
-                        Whether you’re looking to express love, celebrate a milestone, or create a memorable atmosphere,
-                        Fleur Vine ensures every petal, leaf, and ribbon aligns perfectly with your vision. Step into a
-                        world where nature’s beauty meets timeless artistry — welcome to Fleur Vine, where every bloom
-                        tells
-                        a story of elegance and abundance.
+                        style="color: var(--olive); font-size: 1.2rem; line-height: 1.8; font-weight: 600; text-align: center; font-style: italic;">
+                        Fleur Vine: You design the vision. We provide the abundance.
                     </p>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- Cart Sidebar -->
+    <!-- Enquiry List Sidebar -->
     <div class="cart-sidebar" id="cartSidebar">
         <div class="cart-header">
-            <h3>Your Cart</h3>
+            <h3>Your Enquiry List</h3>
             <button class="close-cart" onclick="toggleCart()">×</button>
         </div>
         <div class="cart-items" id="cartItems">
-            <p>Your cart is empty</p>
+            <p>Your enquiry list is empty</p>
         </div>
 
         <button class="checkout-btn" onclick="orderFromCart()">Order via WhatsApp</button>
@@ -1434,7 +1554,7 @@
         let cart = [];
         let filteredProducts = [...products];
         let searchTerm = '';
-        const whatsappNumber = "917818995275";
+        const whatsappNumber = "919316602536";
 
         document.addEventListener('DOMContentLoaded', function () {
             const menuToggle = document.getElementById('menuToggle');
@@ -1559,7 +1679,7 @@
                     <div class="product-name">${product.name}</div>
                     <p class="product-description">${product.description}</p>
                     <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
-                        <button class="add-to-cart" onclick="addToCart(${product.id})" style="flex: 1;">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart(${product.id})" style="flex: 1;">Add to Enquiry List</button>
                         <button class="add-to-cart" onclick="orderNow(${product.id})" style="flex: 1; background-color: var(--stone);" onmouseover="this.style.backgroundColor='var(--olive)'" onmouseout="this.style.backgroundColor='var(--stone)'">Order Now</button>
                     </div>
                 </div>
