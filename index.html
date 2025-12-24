@@ -382,6 +382,17 @@
             section [style*="grid-template-columns: 1fr 1.5fr"] {
                 grid-template-columns: 1fr !important;
             }
+
+            /* Make Logistics & Delivery section stack vertically on mobile */
+            section [style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Adjust transport image for mobile */
+            section img[alt="Transport and Logistics"] {
+                max-width: 100% !important;
+                margin-top: 2rem;
+            }
         }
 
         /* Filters */
@@ -1209,17 +1220,12 @@
             <nav>
                 <a onclick="showPage('home')">Home</a>
                 <a onclick="showPage('about')">About</a>
-                <a onclick="showPage('howitworks')">How It Works</a>
                 <a onclick="showPage('orders')">All Flowers</a>
-                <div class="cart-icon" onclick="toggleCart()">
-                    🛒
-                </div>
                 <div class="menu-toggle" id="menuToggle">☰</div>
             </nav>
             <div class="mobile-nav" id="mobileNav">
                 <a onclick="showPage('home'); toggleMobileMenu()">Home</a>
                 <a onclick="showPage('about'); toggleMobileMenu()">About</a>
-                <a onclick="showPage('howitworks'); toggleMobileMenu()">How It Works</a>
                 <a onclick="showPage('orders'); toggleMobileMenu()">All Flowers</a>
             </div>
         </div>
@@ -1274,8 +1280,7 @@
                         <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
                             <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
                                 Export-Grade Quality</h3>
-                            <p style="color: var(--stone);">A-Grade export quality blooms only. No fillers, no bruised
-                                petals.</p>
+                            <p style="color: var(--stone);">A-Grade export quality blooms only.</p>
                         </div>
                     </div>
                 </div>
@@ -1329,7 +1334,13 @@
                 <h2 class="section-title">Logistics & Delivery</h2>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
-                    <!-- Left Column: Content -->
+                    <!-- Left Column: Transport Image -->
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <img src="tranport.jpg" alt="Transport and Logistics"
+                            style="width: 100%; max-width: 500px; height: auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);">
+                    </div>
+
+                    <!-- Right Column: Content -->
                     <div>
                         <!-- Packaging & Process -->
                         <div style="background: var(--beige); padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
@@ -1372,12 +1383,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Right Column: Transport Image -->
-                    <div style="display: flex; justify-content: center; align-items: center;">
-                        <img src="tranport.jpg" alt="Transport and Logistics"
-                            style="width: 100%; max-width: 500px; height: auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);">
-                    </div>
                 </div>
             </div>
         </section>
@@ -1387,93 +1392,7 @@
         </section>
     </div>
 
-    <!-- HOW IT WORKS PAGE -->
-    <div id="howitworks" class="page">
-        <section style="padding: 4rem 2rem; background: var(--ivory);">
-            <div class="container">
-                <h2 class="section-title">How to Order: Our B2B Procurement Process</h2>
 
-                <div style="max-width: 900px; margin: 0 auto 3rem; text-align: center;">
-                    <p style="color: var(--stone); font-size: 1.05rem; line-height: 1.8;">
-                        Since we deal with high-volume shipments and large-scale floral contracts, we prioritize
-                        financial security and order precision over automated checkouts. Our four-step process ensures
-                        you get exactly what your event requires.
-                    </p>
-                </div>
-
-                <!-- 4-Step Process -->
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-                    <div
-                        style="padding: 2rem; background: var(--beige); border-radius: 8px; border-left: 4px solid var(--gold);">
-                        <h3
-                            style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif; font-size: 1.3rem;">
-                            1. Browse & Build</h3>
-                        <p style="color: var(--stone); line-height: 1.8;">
-                            Explore our extensive catalog of local and international blooms. Use the "Add to Enquiry
-                            List" button to build a list of the specific varieties and stem types required for your
-                            project. There are no upfront costs at this stage.
-                        </p>
-                    </div>
-
-                    <div
-                        style="padding: 2rem; background: var(--beige); border-radius: 8px; border-left: 4px solid var(--gold);">
-                        <h3
-                            style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif; font-size: 1.3rem;">
-                            2. Submit Your Enquiry</h3>
-                        <p style="color: var(--stone); line-height: 1.8;">
-                            Once your list is ready, review it in your "Enquiry List" and click the WhatsApp button.
-                            This sends your specific requirement directly to our procurement desk. No accounts or login
-                            required—just direct business communication.
-                        </p>
-                    </div>
-
-                    <div
-                        style="padding: 2rem; background: var(--beige); border-radius: 8px; border-left: 4px solid var(--gold);">
-                        <h3
-                            style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif; font-size: 1.3rem;">
-                            3. Quote & Market Confirmation</h3>
-                        <p style="color: var(--stone); line-height: 1.8;">
-                            Flower pricing fluctuates based on seasonality and market availability. Within a short
-                            window, our team will provide a formal bulk-rate quote based on the current best market
-                            pricing for your specific volume and event dates.
-                        </p>
-                    </div>
-
-                    <div
-                        style="padding: 2rem; background: var(--beige); border-radius: 8px; border-left: 4px solid var(--gold);">
-                        <h3
-                            style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif; font-size: 1.3rem;">
-                            4. Professional Fulfillment</h3>
-                        <p style="color: var(--stone); line-height: 1.8;">
-                            Upon your approval of the quote, we issue a professional business invoice. To ensure the
-                            security of large-sum transactions, payments are handled via Direct Bank Transfer
-                            (IMPS/NEFT/RTGS). Once confirmed, your flowers are harvested, packed, and dispatched via
-                            your chosen logistics directly to your venue.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Why No Automated Portal -->
-                <div
-                    style="max-width: 900px; margin: 0 auto; background: var(--beige); padding: 2.5rem; border-radius: 8px; border: 2px solid var(--gold);">
-                    <h3
-                        style="color: var(--olive); margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif; font-size: 1.4rem; text-align: center;">
-                        Why we don't use an automated payment portal:</h3>
-                    <ul style="color: var(--stone); font-size: 1.05rem; line-height: 1.8; padding-left: 1.5rem;">
-                        <li style="margin-bottom: 1rem;"><strong style="color: var(--olive);">Security:</strong> We
-                            handle large-scale business transactions that exceed standard consumer portal limits.</li>
-                        <li style="margin-bottom: 1rem;"><strong style="color: var(--olive);">Market Pricing:</strong>
-                            We ensure you get the most competitive wholesale rates on the day of your enquiry, rather
-                            than fixed (and often higher) retail prices.</li>
-                        <li style="margin-bottom: 1rem;"><strong style="color: var(--olive);">Order Accuracy:</strong>
-                            Every event is unique. A human review of your order ensures we have the stock and logistics
-                            capacity to meet your deadline perfectly.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </div>
 
     <!-- ORDERS PAGE -->
     <div id="orders" class="page">
@@ -1571,21 +1490,6 @@
         </section>
     </div>
 
-    <!-- Enquiry List Sidebar -->
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h3>Your Enquiry List</h3>
-            <button class="close-cart" onclick="toggleCart()">×</button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <p>Your enquiry list is empty</p>
-        </div>
-
-        <button class="checkout-btn" onclick="orderFromCart()">Order via WhatsApp</button>
-    </div>
-
-    <!-- Floating WhatsApp Button -->
-    <div class="floating-whatsapp" onclick="openWhatsApp()"></div>
 
     <!-- Toast Container -->
     <div id="toastContainer"></div>
@@ -1718,10 +1622,7 @@
                     <div class="product-image" style="background-image: url('${product.image}'); background-size: cover; background-position: center;" onclick="openImageModal('${product.image}', '${product.name}')"></div>
                     <div class="product-name">${product.name}</div>
                     <p class="product-description">${product.description}</p>
-                    <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
-                        <button class="add-to-cart" onclick="addToCart(${product.id})" style="flex: 1;">Add to Enquiry List</button>
-                        <button class="add-to-cart" onclick="orderNow(${product.id})" style="flex: 1; background-color: var(--stone);" onmouseover="this.style.backgroundColor='var(--olive)'" onmouseout="this.style.backgroundColor='var(--stone)'">Order Now</button>
-                    </div>
+                    <button class="add-to-cart" onclick="getQuote(${product.id})" style="width: 100%; margin-top: 1rem;">Get a Quote</button>
                 </div>
             `).join('');
         }
@@ -1769,87 +1670,6 @@
             }, 3000);
         }
 
-        // Enhanced cart animation
-        function animateCartIcon() {
-            const cartIcon = document.querySelector('.cart-icon');
-            if (cartIcon) {
-                cartIcon.classList.add('pulse');
-                setTimeout(() => {
-                    cartIcon.classList.remove('pulse');
-                }, 300);
-            }
-        }
-
-        // Add to cart
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-
-            if (!product) {
-                return;
-            }
-
-            const existingItem = cart.find(item => item.id === productId);
-
-            if (!existingItem) {
-                cart.push({ ...product });
-                showToast(`${product.name} added to cart`);
-                updateCartDisplay();
-                animateCartIcon();
-            } else {
-                showToast(`${product.name} already in cart`);
-            }
-        }
-
-        // Remove from cart
-        function removeFromCart(productId) {
-            const product = products.find(p => p.id === productId);
-            cart = cart.filter(item => item.id !== productId);
-            updateCartCount();
-            updateCartDisplay();
-            showToast(`${product.name} removed from cart`, 'info');
-            animateCartIcon();
-        }
-
-        // Update quantity
-        function updateQuantity(productId, change) {
-            const item = cart.find(item => item.id === productId);
-            if (item) {
-                item.quantity += change;
-                if (item.quantity <= 0) {
-                    removeFromCart(productId);
-                } else {
-                    updateCartCount();
-                    updateCartDisplay();
-                }
-            }
-        }
-
-        // Update cart count (simplified - no badges)
-        function updateCartCount() {
-            // Cart count badges removed - function kept for compatibility
-        }
-
-
-
-        // Update cart display
-        function updateCartDisplay() {
-            const cartItems = document.getElementById('cartItems');
-
-            if (cart.length === 0) {
-                cartItems.innerHTML = '<p>Your cart is empty</p>';
-                return;
-            }
-
-            cartItems.innerHTML = cart.map(item => `
-                <div class="cart-item">
-                    <div class="cart-item-info">
-                        <div class="cart-item-name">${item.name}</div>
-                    </div>
-                    <button class="quantity-btn" onclick="removeFromCart(${item.id})" style="background: #d9534f; width: auto; padding: 0.5rem 1rem; border-radius: 4px;" title="Remove from cart">Remove</button>
-                </div>
-            `).join('');
-        }
-
         // Show WhatsApp loading
         function showWhatsAppLoading() {
             const loading = document.getElementById('whatsappLoading');
@@ -1860,39 +1680,10 @@
             }, 2000);
         }
 
-        // Toggle cart
-        function toggleCart() {
-            const cartSidebar = document.getElementById('cartSidebar');
-            cartSidebar.classList.toggle('open');
-            updateCartDisplay();
-        }
-
-        // Order single product
-        function orderNow(productId) {
-            const product = products.find(p => p.id === productId);
+        // Get a quote for a product
+        function getQuote(productId) {
             showWhatsAppLoading();
-            const message = `Hi! I would like to order:\n\n${product.name}\n\nPlease confirm availability and delivery details.`;
-
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
-
-        // Order from cart
-        function orderFromCart() {
-            if (cart.length === 0) {
-                showToast('Your cart is empty!', 'info');
-                return;
-            }
-
-            showWhatsAppLoading();
-
-            let message = "Hi! I would like to order the following flowers:\n\n";
-
-            cart.forEach(item => {
-                message += `${item.name}\n`;
-            });
-
-            message += `\nPlease confirm availability and delivery details.`;
+            const message = `Hello, I'm interested in bulk flower pricing.\nPlease share quotation and availability details.`;
 
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
