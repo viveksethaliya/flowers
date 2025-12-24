@@ -1221,12 +1221,14 @@
                 <a onclick="showPage('home')">Home</a>
                 <a onclick="showPage('about')">About</a>
                 <a onclick="showPage('orders')">All Flowers</a>
+                <a onclick="showPage('contact')">Contact Us</a>
                 <div class="menu-toggle" id="menuToggle">☰</div>
             </nav>
             <div class="mobile-nav" id="mobileNav">
                 <a onclick="showPage('home'); toggleMobileMenu()">Home</a>
                 <a onclick="showPage('about'); toggleMobileMenu()">About</a>
                 <a onclick="showPage('orders'); toggleMobileMenu()">All Flowers</a>
+                <a onclick="showPage('contact'); toggleMobileMenu()">Contact Us</a>
             </div>
         </div>
     </header>
@@ -1490,6 +1492,97 @@
         </section>
     </div>
 
+    <!-- CONTACT US PAGE -->
+    <div id="contact" class="page">
+        <section style="padding: 4rem 2rem; background: var(--ivory);">
+            <div class="container">
+                <!-- Header Section -->
+                <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
+                    <h2 class="section-title">Contact Fleur Vine</h2>
+                    <p style="color: var(--olive); font-size: 1.2rem; margin-bottom: 1rem; font-weight: 500;">
+                        For bulk flower supply and B2B enquiries only
+                    </p>
+                    <p style="color: var(--stone); font-size: 0.95rem; font-style: italic;">
+                        We operate exclusively as a B2B flower supplier and do not handle retail or gift orders.
+                    </p>
+                </div>
+
+                <!-- Contact Details Card -->
+                <div
+                    style="max-width: 700px; margin: 0 auto; background: var(--beige); padding: 3rem; border-radius: 12px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);">
+                    <h3
+                        style="color: var(--olive); font-family: 'Poppins', sans-serif; font-size: 1.8rem; margin-bottom: 2rem; text-align: center; border-bottom: 2px solid var(--gold); padding-bottom: 1rem;">
+                        Business Contact Details
+                    </h3>
+
+                    <!-- Contact Information Grid -->
+                    <div style="display: grid; gap: 2rem;">
+                        <!-- Phone/WhatsApp -->
+                        <div style="display: flex; align-items: start; gap: 1.5rem;">
+                            <div style="flex: 1;">
+                                <h4
+                                    style="color: var(--olive); font-family: 'Poppins', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                                    Phone / WhatsApp
+                                </h4>
+                                <a href="tel:+919316602536"
+                                    style="color: var(--stone); font-size: 1.1rem; text-decoration: none; font-weight: 500;">
+                                    +91 9316602536
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div style="display: flex; align-items: start; gap: 1.5rem;">
+                            <div style="flex: 1;">
+                                <h4
+                                    style="color: var(--olive); font-family: 'Poppins', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                                    Email
+                                </h4>
+                                <a href="mailto:fleur.vine@outlook.com"
+                                    style="color: var(--stone); font-size: 1.1rem; text-decoration: none; font-weight: 500;">
+                                    fleur.vine@outlook.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Business Hours -->
+                        <div style="display: flex; align-items: start; gap: 1.5rem;">
+                            <div style="flex: 1;">
+                                <h4
+                                    style="color: var(--olive); font-family: 'Poppins', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                                    Business Hours
+                                </h4>
+                                <p style="color: var(--stone); font-size: 1.1rem; margin: 0; font-weight: 500;">
+                                    Mon–Sat, 9:00 AM – 6:00 PM
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div style="display: flex; align-items: start; gap: 1.5rem;">
+                            <div style="flex: 1;">
+                                <h4
+                                    style="color: var(--olive); font-family: 'Poppins', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                                    Location
+                                </h4>
+                                <p style="color: var(--stone); font-size: 1.1rem; margin: 0; font-weight: 500;">
+                                    Vadodara, Gujarat, India
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div
+                        style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(107, 117, 102, 0.2);">
+                        <button class="cta-button" onclick="getQuote(0)" style="background-color: var(--gold);">
+                            Get a Quote via WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <!-- Toast Container -->
     <div id="toastContainer"></div>
