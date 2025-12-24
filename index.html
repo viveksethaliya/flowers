@@ -377,6 +377,11 @@
             .logo {
                 font-size: 1.8rem;
             }
+
+            /* Make Why Choose section stack vertically on mobile */
+            section [style*="grid-template-columns: 1fr 1.5fr"] {
+                grid-template-columns: 1fr !important;
+            }
         }
 
         /* Filters */
@@ -1091,6 +1096,107 @@
                 font-size: 1.3rem;
             }
         }
+
+        /* Image Modal/Lightbox */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .image-modal.active {
+            display: flex;
+        }
+
+        .image-modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .image-modal-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: var(--gold);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .image-modal-close:hover {
+            background: var(--olive);
+            transform: rotate(90deg);
+        }
+
+        .product-image {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .product-image:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .image-modal-close {
+                top: 10px;
+                right: 10px;
+            }
+
+            .image-modal-content {
+                max-width: 95%;
+                max-height: 95%;
+            }
+        }
     </style>
 </head>
 
@@ -1137,30 +1243,40 @@
             <div class="container">
                 <h2 class="section-title">Why Choose Fleur Vine?</h2>
                 <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-                    <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
-                            Farm-Direct Freshness</h3>
-                        <p style="color: var(--stone);">Farm-direct sourcing ensures 24-48 hour freshness upon arrival.
-                        </p>
+                    style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: center; margin-bottom: 3rem;">
+                    <!-- Image Column -->
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <img src="title1.jpg" alt="Fleur Vine Flowers"
+                            style="width: 100%; max-width: 500px; height: auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);">
                     </div>
-                    <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
-                            High-Volume Capacity</h3>
-                        <p style="color: var(--stone);">No order is too large. We specialize in high-stem-count
-                            fulfillment.</p>
-                    </div>
-                    <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
-                            Event-Timed Reliability</h3>
-                        <p style="color: var(--stone);">We understand event deadlines. Our logistics are timed for your
-                            setup schedule.</p>
-                    </div>
-                    <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
-                            Export-Grade Quality</h3>
-                        <p style="color: var(--stone);">A-Grade export quality blooms only. No fillers, no bruised
-                            petals.</p>
+                    <!-- Content Column -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                        <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
+                            <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
+                                Farm-Direct Freshness</h3>
+                            <p style="color: var(--stone);">Farm-direct sourcing ensures 24-48 hour freshness upon
+                                arrival.
+                            </p>
+                        </div>
+                        <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
+                            <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
+                                High-Volume Capacity</h3>
+                            <p style="color: var(--stone);">No order is too large. We specialize in high-stem-count
+                                fulfillment.</p>
+                        </div>
+                        <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
+                            <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
+                                Event-Timed Reliability</h3>
+                            <p style="color: var(--stone);">We understand event deadlines. Our logistics are timed for
+                                your
+                                setup schedule.</p>
+                        </div>
+                        <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
+                            <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
+                                Export-Grade Quality</h3>
+                            <p style="color: var(--stone);">A-Grade export quality blooms only. No fillers, no bruised
+                                petals.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1212,44 +1328,55 @@
             <div class="container">
                 <h2 class="section-title">Logistics & Delivery</h2>
 
-                <!-- Packaging & Process -->
-                <div
-                    style="max-width: 900px; margin: 0 auto 3rem; background: var(--beige); padding: 2rem; border-radius: 8px; text-align: center;">
-                    <h3
-                        style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif; font-size: 1.5rem;">
-                        Professional Packaging</h3>
-                    <p style="color: var(--stone); font-size: 1.05rem; line-height: 1.8;">
-                        Every order is wrapped in protective hydration sleeves and corrugated B2B-grade boxes to ensure
-                        your blooms arrive fresh and damage-free. Daily dispatches via Air and Train or road transport
-                        to ensure your
-                        event setup starts with fresh stock.
-                    </p>
-                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+                    <!-- Left Column: Content -->
+                    <div>
+                        <!-- Packaging & Process -->
+                        <div style="background: var(--beige); padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                            <h3
+                                style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif; font-size: 1.5rem;">
+                                Professional Packaging</h3>
+                            <p style="color: var(--stone); font-size: 1.05rem; line-height: 1.8;">
+                                Every order is wrapped in protective hydration sleeves and corrugated B2B-grade boxes to
+                                ensure
+                                your blooms arrive fresh and damage-free. Daily dispatches via Air and Train or road
+                                transport
+                                to ensure your event setup starts with fresh stock.
+                            </p>
+                        </div>
 
-                <!-- Delivery Methods -->
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-                    <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <!-- <div style="font-size: 3rem; margin-bottom: 1rem;">🚂</div> -->
-                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">Train
-                            Parcel</h3>
-                        <p style="color: var(--stone);">Fast + economical delivery option for nationwide shipping with
-                            daily dispatches</p>
+                        <!-- Delivery Methods -->
+                        <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+                            <div style="padding: 1.5rem; background: var(--beige); border-radius: 8px;">
+                                <h3
+                                    style="color: var(--olive); margin-bottom: 0.5rem; font-family: 'Poppins', sans-serif;">
+                                    Train Parcel</h3>
+                                <p style="color: var(--stone);">Fast + economical delivery option for nationwide
+                                    shipping with daily dispatches</p>
+                            </div>
+
+                            <div style="padding: 1.5rem; background: var(--beige); border-radius: 8px;">
+                                <h3
+                                    style="color: var(--olive); margin-bottom: 0.5rem; font-family: 'Poppins', sans-serif;">
+                                    Road Transport</h3>
+                                <p style="color: var(--stone);">Professional road logistics for regional delivery,
+                                    coordinated to match your event's specific setup schedule.</p>
+                            </div>
+
+                            <div style="padding: 1.5rem; background: var(--beige); border-radius: 8px;">
+                                <h3
+                                    style="color: var(--olive); margin-bottom: 0.5rem; font-family: 'Poppins', sans-serif;">
+                                    Air Cargo</h3>
+                                <p style="color: var(--stone);">Express delivery for urgent event deadlines and
+                                    time-sensitive orders across India</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <!-- <div style="font-size: 3rem; margin-bottom: 1rem;">🚛</div> -->
-                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">Road
-                            Transport</h3>
-                        <p style="color: var(--stone);">Professional road logistics for regional delivery, coordinated
-                            to match your event’s specific setup schedule.</p>
-                    </div>
-                    <div style="text-align: center; padding: 2rem; background: var(--beige); border-radius: 8px;">
-                        <!-- <div style="font-size: 3rem; margin-bottom: 1rem;">✈️</div> -->
-                        <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">Air
-                            Cargo</h3>
-                        <p style="color: var(--stone);">Express delivery for urgent event deadlines and time-sensitive
-                            orders across India</p>
+                    <!-- Right Column: Transport Image -->
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <img src="tranport.jpg" alt="Transport and Logistics"
+                            style="width: 100%; max-width: 500px; height: auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);">
                     </div>
                 </div>
             </div>
@@ -1354,30 +1481,15 @@
             <div class="container">
                 <h2 class="section-title" id="sectionTitle">All Products</h2>
 
-                <div class="search-controls">
-                    <input type="text" id="searchBox" class="search-box" placeholder="Search flowers..."
-                        oninput="searchProducts()">
-                    <button class="clear-all-btn" onclick="clearAllFilters()">Clear All</button>
-                </div>
-
-                <div class="filters">
-                    <select id="eventFilter" onchange="filterProducts()">
-                        <option value="all">All Events</option>
-                        <option value="wedding">Wedding</option>
-                        <option value="festival">Festival</option>
-                        <option value="decoration">Decoration</option>
-                        <option value="gift">Gift</option>
-                    </select>
-                    <select id="sortBy" onchange="sortProducts()">
-                        <option value="name">Sort by Name</option>
-                    </select>
-                </div>
-
-                <div class="product-count" id="productCount"></div>
-
                 <div class="products-grid" id="productsGrid">
                     <!-- Products will be populated by JavaScript -->
                 </div>
+                <div
+                    style="margin-top: 1rem; color: var(--stone); font-size: 1.05rem; line-height: 1.8; text-align: center;">
+                    The varieties
+                    displayed above represent our most frequently supplied flowers. Through our extensive
+                    farmer network, we source a wide range of seasonal and specialty flowers based on client
+                    requirements.</div>
             </div>
         </section>
     </div>
@@ -1486,69 +1598,35 @@
         </div>
     </div>
 
+    <!-- Image Modal -->
+    <div class="image-modal" id="imageModal">
+        <div class="image-modal-content">
+            <button class="image-modal-close" onclick="closeImageModal()">×</button>
+            <img id="modalImage" src="" alt="Product Image">
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Fleur Vine. All rights reserved. | Fresh-Cut Flowers for Events, Wholesale & Export.</p>
     </footer>
 
     <script>
-        // Products data
+        // Products data - Filtered to show only Roses, Gypsophila, Gerbera, Chrysanthemum, and Orchids
         const products = [
-            // International Flowers
-            { id: 1, name: "Red Rose", image: "1.jpg", description: "Classic red roses for romantic occasions", events: ["wedding", "gift"] },
-            { id: 2, name: "Pink Rose", image: "2.jpg", description: "Soft pink roses for gentle expressions", events: ["wedding", "gift"] },
-            { id: 3, name: "White Rose", image: "3.jpg", description: "Pure white roses for elegant events", events: ["wedding", "decoration"] },
-            { id: 4, name: "Yellow Rose", image: "4.jpg", description: "Bright yellow roses for friendship", events: ["gift", "decoration"] },
-            { id: 5, name: "Orange Rose", image: "5.jpg", description: "Vibrant orange roses for enthusiasm", events: ["gift", "decoration"] },
-            { id: 6, name: "Peach Rose", image: "6.jpg", description: "Delicate peach roses for warmth", events: ["wedding", "gift"] },
-            { id: 7, name: "Red Carnation", image: "7.jpg", description: "Bold red carnations for passion", events: ["wedding", "gift"] },
-            { id: 8, name: "White Carnation", image: "8.jpg", description: "Pure white carnations for remembrance", events: ["wedding", "decoration"] },
-            { id: 9, name: "Pink Carnation", image: "9.jpg", description: "Sweet pink carnations for affection", events: ["gift", "wedding"] },
-            { id: 10, name: "Yellow Carnation", image: "10.jpg", description: "Cheerful yellow carnations for joy", events: ["gift", "decoration"] },
-            { id: 11, name: "Purple Carnation", image: "11.jpg", description: "Royal purple carnations for elegance", events: ["wedding", "decoration"] },
-            { id: 12, name: "Mixed Gerbera", image: "12.jpg", description: "Colorful gerberas in multiple vibrant colors", events: ["decoration", "gift"] },
-            { id: 13, name: "Spider Chrysanthemum", image: "13.jpg", description: "Unique spider-type chrysanthemums", events: ["decoration", "festival"] },
-            { id: 14, name: "Button Chrysanthemum", image: "14.jpg", description: "Small button-type chrysanthemums", events: ["decoration", "festival"] },
-            { id: 15, name: "Dendrobium Orchid", image: "15.jpg", description: "Elegant dendrobium orchids", events: ["wedding", "decoration"] },
-            { id: 16, name: "Mokara Orchid", image: "16.jpg", description: "Exotic mokara orchids", events: ["wedding", "decoration"] },
-            { id: 17, name: "Cymbidium Orchid", image: "17.jpg", description: "Premium cymbidium orchids", events: ["wedding", "decoration"] },
-            { id: 18, name: "Gladiolus", image: "18.jpg", description: "Tall gladiolus spikes for dramatic arrangements", events: ["decoration", "wedding"] },
-            { id: 19, name: "Asiatic Lily", image: "19.jpg", description: "Beautiful asiatic lilies", events: ["wedding", "decoration"] },
-            { id: 20, name: "Oriental Lily", image: "20.jpg", description: "Fragrant oriental lilies", events: ["wedding", "decoration"] },
-            { id: 21, name: "Peruvian Lily", image: "21.jpg", description: "Delicate peruvian lilies", events: ["wedding", "gift"] },
-            { id: 22, name: "Anthurium", image: "22.jpg", description: "Exotic anthurium flowers", events: ["decoration", "wedding"] },
-            { id: 23, name: "Bird of Paradise", image: "23.jpg", description: "Stunning bird of paradise flowers", events: ["decoration", "wedding"] },
-            { id: 24, name: "Gypsophila (Baby's Breath)", image: "24.jpg", description: "Delicate baby's breath for filler arrangements", events: ["wedding", "decoration"] },
+            // Roses
+            { id: 1, name: "Rose", image: "rose.jpeg", description: "Classic roses for romantic occasions", events: ["wedding", "gift"] },
 
-            // Indian Flowers
-            { id: 25, name: "Orange Marigold", image: "25.jpg", description: "Traditional orange marigolds for festivals", events: ["festival", "decoration"] },
-            { id: 26, name: "Yellow Marigold", image: "26.jpg", description: "Bright yellow marigolds for celebrations", events: ["festival", "decoration"] },
-            { id: 27, name: "White Marigold", image: "27.jpg", description: "Pure white marigolds for ceremonies", events: ["festival", "decoration"] },
-            { id: 28, name: "Mogra Jasmine", image: "28.jpg", description: "Fragrant mogra jasmine flowers", events: ["festival", "wedding"] },
-            { id: 29, name: "Jui Jasmine", image: "29.jpg", description: "Traditional jui jasmine", events: ["festival", "wedding"] },
-            { id: 30, name: "Tuberose (Rajnigandha)", image: "30.jpg", description: "Highly fragrant tuberose flowers", events: ["wedding", "festival"] },
-            { id: 31, name: "Crossandra (Kanakambaram)", image: "31.jpg", description: "Bright orange crossandra flowers", events: ["festival", "decoration"] },
-            { id: 32, name: "Loose Chrysanthemum", image: "32.jpg", description: "Loose variety chrysanthemums", events: ["festival", "decoration"] },
-            { id: 33, name: "Multi-color Aster", image: "33.jpg", description: "Colorful aster flowers", events: ["decoration", "festival"] },
-            { id: 34, name: "Lotus", image: "34.jpg", description: "Sacred lotus flowers", events: ["festival", "decoration"] },
-            { id: 35, name: "Rose Petals", image: "35.jpg", description: "Fresh rose petals for garlands and decoration", events: ["wedding", "festival"] },
+            // Gerbera
+            { id: 12, name: "Gerbera", image: "gerbera.jpeg", description: "Colorful gerberas in multiple vibrant colors", events: ["decoration", "gift"] },
 
-            // Seasonal/Imported Flowers
-            { id: 36, name: "Tulip", image: "36.jpg", description: "Elegant tulips in various colors", events: ["gift", "wedding"] },
-            { id: 37, name: "Peony", image: "37.jpg", description: "Luxurious peony flowers", events: ["wedding", "gift"] },
-            { id: 38, name: "Hydrangea", image: "38.jpg", description: "Full hydrangea blooms", events: ["wedding", "decoration"] },
-            { id: 39, name: "Calla Lily", image: "39.jpg", description: "Sophisticated calla lilies", events: ["wedding", "decoration"] },
-            { id: 40, name: "Delphinium", image: "40.jpg", description: "Tall delphinium spikes", events: ["wedding", "decoration"] },
-            { id: 41, name: "Ranunculus", image: "41.jpg", description: "Layered ranunculus flowers", events: ["wedding", "gift"] },
-            { id: 42, name: "Lisianthus", image: "42.jpg", description: "Elegant lisianthus blooms", events: ["wedding", "gift"] },
-            { id: 43, name: "Protea", image: "43.jpg", description: "Exotic protea flowers", events: ["decoration", "wedding"] },
+            // Chrysanthemum
+            { id: 13, name: "Chrysanthemum", image: "chrysanthemum.jpeg", description: "Unique spider-type chrysanthemums", events: ["decoration", "festival"] },
 
-            // Foliage and Fillers
-            { id: 44, name: "Ferns", image: "44.jpg", description: "Fresh green ferns for arrangements", events: ["decoration", "wedding"] },
-            { id: 45, name: "Eucalyptus Leaves", image: "45.jpg", description: "Aromatic eucalyptus foliage", events: ["wedding", "decoration"] },
-            { id: 46, name: "Ruscus", image: "46.jpg", description: "Durable ruscus greenery", events: ["wedding", "decoration"] },
-            { id: 47, name: "Leatherleaf", image: "47.jpg", description: "Classic leatherleaf fern", events: ["wedding", "decoration"] },
-            { id: 48, name: "Palm Leaves", image: "48.jpg", description: "Tropical palm leaves", events: ["decoration", "wedding"] }
+            // Orchids
+            { id: 15, name: "Orchid", image: "orchids.jpeg", description: "Elegant dendrobium orchids", events: ["wedding", "decoration"] },
+            // Gypsophila
+            { id: 24, name: "Gypsophila", image: "gypsophila.jpeg", description: "Delicate baby's breath for filler arrangements", events: ["wedding", "decoration"] }
         ];
 
         let cart = [];
@@ -1608,58 +1686,20 @@
         // Show empty state
         function showEmptyState() {
             const productsGrid = document.getElementById('productsGrid');
-            const eventFilter = document.getElementById('eventFilter').value;
-            const filterName = eventFilter === 'all' ? 'products' : `${eventFilter} flowers`;
 
             productsGrid.innerHTML = `
                 <div class="empty-state" style="grid-column: 1 / -1;">
                     <div class="empty-state-icon">🌸</div>
-                    <h3>No ${filterName} found</h3>
-                    <p>We couldn't find any flowers matching your current selection. Try adjusting your filters or browse all our beautiful collections.</p>
-                    <button class="clear-filters-btn" onclick="clearFilters()">View All Products</button>
+                    <h3>No products found</h3>
+                    <p>We couldn't find any flowers. Please check back later.</p>
                 </div>
             `;
         }
 
-        // Clear all filters
-        function clearFilters() {
-            document.getElementById('eventFilter').value = 'all';
-            document.getElementById('sortBy').value = 'name';
-            filterProducts();
-        }
-
-        // Clear all filters and search
-        function clearAllFilters() {
-            document.getElementById('searchBox').value = '';
-            document.getElementById('eventFilter').value = 'all';
-            document.getElementById('sortBy').value = 'name';
-            searchTerm = '';
-            applyFilters();
-        }
-
-        // Update product count display
+        // Update product count display - simplified version
         function updateProductCount() {
-            const productCount = document.getElementById('productCount');
-            const eventFilter = document.getElementById('eventFilter').value;
-            const count = filteredProducts.length;
-
-            if (count === 0) {
-                productCount.textContent = '';
-                return;
-            }
-
-            let countText = `Showing ${count} `;
-            if (eventFilter === 'all') {
-                countText += count === 1 ? 'product' : 'products';
-            } else {
-                countText += eventFilter + (count === 1 ? ' flower' : ' flowers');
-            }
-
-            if (searchTerm) {
-                countText += ` matching "${searchTerm}"`;
-            }
-
-            productCount.textContent = countText;
+            // Product count element was removed, so this function does nothing now
+            return;
         }
 
         // Render products
@@ -1675,7 +1715,7 @@
 
             productsGrid.innerHTML = productsToRender.map(product => `
                 <div class="product-card">
-                    <div class="product-image" style="background-image: url('${product.image}'); background-size: cover; background-position: center;"></div>
+                    <div class="product-image" style="background-image: url('${product.image}'); background-size: cover; background-position: center;" onclick="openImageModal('${product.image}', '${product.name}')"></div>
                     <div class="product-name">${product.name}</div>
                     <p class="product-description">${product.description}</p>
                     <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
@@ -1686,68 +1726,27 @@
             `).join('');
         }
 
-        // Search products
+        // Search products - simplified (no search functionality)
         function searchProducts() {
-            searchTerm = document.getElementById('searchBox').value.toLowerCase();
-            applyFilters();
+            // Search removed - do nothing
+            return;
         }
 
-        // Apply all filters (search + event filter)
+        // Apply all filters - simplified to just render all products
         function applyFilters() {
-            showLoading();
-
-            setTimeout(() => {
-                const eventFilter = document.getElementById('eventFilter').value;
-
-                // First filter by event
-                let filtered = eventFilter === 'all' ? [...products] : products.filter(p => p.events.includes(eventFilter));
-
-                // Then filter by search term
-                if (searchTerm) {
-                    filtered = filtered.filter(p =>
-                        p.name.toLowerCase().includes(searchTerm) ||
-                        p.description.toLowerCase().includes(searchTerm)
-                    );
-                }
-
-                filteredProducts = filtered;
-
-                // Update section title
-                const titleMap = {
-                    'all': 'All Products',
-                    'wedding': 'Wedding Flowers',
-                    'festival': 'Festival Flowers',
-                    'decoration': 'Decoration Flowers',
-                    'gift': 'Gift Flowers'
-                };
-
-                document.getElementById('sectionTitle').textContent = titleMap[eventFilter] || 'All Products';
-                sortProducts();
-            }, 300);
+            filteredProducts = [...products];
+            renderProducts();
         }
 
-        // Filter products by event
+        // Filter products - simplified
         function filterProducts() {
             applyFilters();
         }
 
-        // Sort products
+
+        // Sort products - simplified (no sorting)
         function sortProducts() {
-            const sortBy = document.getElementById('sortBy').value;
-
-            // Show loading if called directly (not from filter)
-            if (!document.getElementById('productsGrid').classList.contains('loading-overlay')) {
-                showLoading();
-            }
-
-            setTimeout(() => {
-                if (sortBy === 'name') {
-                    filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
-                }
-
-                renderProducts();
-                hideLoading();
-            }, 300);
+            renderProducts();
         }
 
         // Show toast notification
@@ -1906,6 +1905,46 @@
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
+
+        // Image Modal Functions
+        function openImageModal(imageSrc, productName) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+
+            modalImage.src = imageSrc;
+            modalImage.alt = productName;
+            modal.classList.add('active');
+
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside the image
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('imageModal');
+
+            modal.addEventListener('click', function (e) {
+                // Close if clicking on the modal background (not the image or close button)
+                if (e.target === modal) {
+                    closeImageModal();
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    closeImageModal();
+                }
+            });
+        });
 
 
     </script>
