@@ -48,7 +48,49 @@
         "logo": "https://fleurvine.in/logo.webp"
     }
     </script>
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V3RPS7EZLX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-V3RPS7EZLX');
 
+        // Track WhatsApp button clicks
+        function trackWhatsAppClick(source) {
+            gtag('event', 'whatsapp_click', {
+                'event_category': 'engagement',
+                'event_label': source,
+                'value': 1
+            });
+        }
+
+        // Track phone number clicks
+        function trackPhoneClick() {
+            gtag('event', 'phone_click', {
+                'event_category': 'engagement',
+                'event_label': 'phone_number',
+                'value': 1
+            });
+        }
+
+        // Track email clicks
+        function trackEmailClick() {
+            gtag('event', 'email_click', {
+                'event_category': 'engagement',
+                'event_label': 'email_address',
+                'value': 1
+            });
+        }
+
+        // Track page navigation
+        function trackPageView(pageName) {
+            gtag('event', 'page_view', {
+                'page_title': pageName,
+                'page_location': window.location.href
+            });
+        }
+    </script>
     <style>
         /* ===========================
            CSS RESET & ROOT VARIABLES
@@ -1216,9 +1258,9 @@
 
             <!-- Contact Info -->
             <section class="contact-us">
-                <p>E-mail: <a href="mailto:fleurvine@outlook.com">fleurvine@outlook.com</a>
+                <p>E-mail: <a href="mailto:fleurvine@outlook.com" onclick="trackEmailClick()">fleurvine@outlook.com</a>
                 </p>
-                <p>Phone: <a href="tel:+919316602536">+91 9316602536</a></p>
+                <p>Phone: <a href="tel:+919316602536" onclick="trackPhoneClick()">+91 9316602536</a></p>
             </section>
         </div>
     </div>
@@ -1348,7 +1390,8 @@
                                         style="color: var(--olive); font-family: 'Poppins', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem;">
                                         Phone / WhatsApp</h4>
                                     <a href="tel:+919316602536"
-                                        style="color: var(--stone); font-size: 1.1rem; text-decoration: none; font-weight: 500;">+91
+                                        style="color: var(--stone); font-size: 1.1rem; text-decoration: none; font-weight: 500;"
+                                        onclick="trackPhoneClick()">+91
                                         9316602536</a>
                                 </div>
                             </div>
@@ -1359,11 +1402,12 @@
                                         style="color: var(--olive); font-family: 'Poppins', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem;">
                                         Email</h4>
                                     <a href="mailto:fleurvine@outlook.com"
-                                        style="color: var(--stone); font-size: 1.1rem; text-decoration: none; font-weight: 500;">fleurvine@outlook.com</a>
+                                        style="color: var(--stone); font-size: 1.1rem; text-decoration: none; font-weight: 500;"
+                                        onclick="trackEmailClick()">fleurvine@outlook.com</a>
                                 </div>
                             </div>
 
-                            <div style="display: flex; align-items: start; gap: 1.5rem;">
+                            <div style=" display: flex; align-items: start; gap: 1.5rem;">
                                 <div style="flex: 1;">
                                     <h4
                                         style="color: var(--olive); font-family: 'Poppins', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem;">
@@ -1480,6 +1524,11 @@
 
             // Close mobile menu when navigating
             closeMobileMenu();
+
+            // Track page view
+            if (typeof gtag !== 'undefined') {
+                trackPageView(pageId);
+            }
         }
 
         function goHome() {
@@ -1557,6 +1606,11 @@
         // WHATSAPP FUNCTIONS
         // ========================================
         function getQuote(productId) {
+            // Track analytics
+            if (typeof gtag !== 'undefined') {
+                trackWhatsAppClick('get_quote_button');
+            }
+
             showWhatsAppLoading();
             const message = `Hello, I'm interested in bulk flower pricing.\nPlease share quotation and availability details.`;
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
@@ -1564,6 +1618,11 @@
         }
 
         function openWhatsApp() {
+            // Track analytics
+            if (typeof gtag !== 'undefined') {
+                trackWhatsAppClick('general_inquiry');
+            }
+
             showWhatsAppLoading();
             const message = "Hi! I'm interested in your flowers. Could you please help me with my floral needs?";
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
