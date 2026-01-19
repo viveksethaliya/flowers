@@ -1,0 +1,69 @@
+<svg width="728" height="60" viewBox="0 0 728 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Left ornate pattern (scaled down for mobile) -->
+  <g transform="translate(30, 30)">
+    <!-- Central flourish -->
+    <path d="M0,0 Q-10,-15 -18,-12 Q-15,-4 0,0 Q15,-4 18,-12 Q10,-15 0,0" fill="#D4AF87" stroke="#D4AF87" stroke-width="1"/>
+    
+    <!-- Top leaf -->
+    <path d="M0,-4 Q-6,-12 -8,-17 Q-6,-15 0,-9 Q6,-15 8,-17 Q6,-12 0,-4" fill="#D4AF87"/>
+    
+    <!-- Bottom leaf -->
+    <path d="M0,4 Q-6,12 -8,17 Q-6,15 0,9 Q6,15 8,17 Q6,12 0,4" fill="#D4AF87"/>
+    
+    <!-- Left flourish -->
+    <path d="M-4,0 Q-14,-6 -21,-5 Q-16,-2 -11,0 Q-16,2 -21,5 Q-14,6 -4,0" fill="#D4AF87"/>
+    
+    <!-- Right flourish -->
+    <path d="M4,0 Q14,-6 21,-5 Q16,-2 11,0 Q16,2 21,5 Q14,6 4,0" fill="#D4AF87"/>
+    
+    <!-- Decorative dots -->
+    <circle cx="-26" cy="0" r="1.5" fill="#D4AF87"/>
+    <circle cx="26" cy="0" r="1.5" fill="#D4AF87"/>
+    <circle cx="0" cy="-22" r="1.5" fill="#D4AF87"/>
+    <circle cx="0" cy="22" r="1.5" fill="#D4AF87"/>
+    
+    <!-- Inner swirls -->
+    <path d="M-9,-9 Q-14,-14 -12,-17 Q-9,-14 -6,-11" stroke="#D4AF87" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+    <path d="M9,-9 Q14,-14 12,-17 Q9,-14 6,-11" stroke="#D4AF87" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+    <path d="M-9,9 Q-14,14 -12,17 Q-9,14 -6,11" stroke="#D4AF87" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+    <path d="M9,9 Q14,14 12,17 Q9,14 6,11" stroke="#D4AF87" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Main horizontal line (left side) -->
+  <line x1="65" y1="30" x2="250" y2="30" stroke="#D4AF87" stroke-width="1.5"/>
+  
+  <!-- Main horizontal line (right side) -->
+  <line x1="478" y1="30" x2="663" y2="30" stroke="#D4AF87" stroke-width="1.5"/>
+  
+  <!-- Right ornate pattern (mirrored) -->
+  <g transform="translate(698, 30) scale(-1, 1)">
+    <!-- Central flourish -->
+    <path d="M0,0 Q-10,-15 -18,-12 Q-15,-4 0,0 Q15,-4 18,-12 Q10,-15 0,0" fill="#D4AF87" stroke="#D4AF87" stroke-width="1"/>
+    
+    <!-- Top leaf -->
+    <path d="M0,-4 Q-6,-12 -8,-17 Q-6,-15 0,-9 Q6,-15 8,-17 Q6,-12 0,-4" fill="#D4AF87"/>
+    
+    <!-- Bottom leaf -->
+    <path d="M0,4 Q-6,12 -8,17 Q-6,15 0,9 Q6,15 8,17 Q6,12 0,4" fill="#D4AF87"/>
+    
+    <!-- Left flourish -->
+    <path d="M-4,0 Q-14,-6 -21,-5 Q-16,-2 -11,0 Q-16,2 -21,5 Q-14,6 -4,0" fill="#D4AF87"/>
+    
+    <!-- Right flourish -->
+    <path d="M4,0 Q14,-6 21,-5 Q16,-2 11,0 Q16,2 21,5 Q14,6 4,0" fill="#D4AF87"/>
+    
+    <!-- Decorative dots -->
+    <circle cx="-26" cy="0" r="1.5" fill="#D4AF87"/>
+    <circle cx="26" cy="0" r="1.5" fill="#D4AF87"/>
+    <circle cx="0" cy="-22" r="1.5" fill="#D4AF87"/>
+    <circle cx="0" cy="22" r="1.5" fill="#D4AF87"/>
+    
+    <!-- Inner swirls -->
+    <path d="M-9,-9 Q-14,-14 -12,-17 Q-9,-14 -6,-11" stroke="#D4AF87" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+    <path d="M9,-9 Q14,-14 12,-17 Q9,-14 6,-11" stroke="#D4AF87" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+    <path d="M-9,9 Q-14,14 -12,17 Q-9,14 -6,11" stroke="#D4AF87" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+    <path d="M9,9 Q14,14 12,17 Q9,14 6,11" stroke="#D4AF87" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Center area remains plain for text (x: 250-478) -->
+</svg>
