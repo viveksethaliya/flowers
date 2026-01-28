@@ -141,6 +141,17 @@
             align-items: center;
         }
 
+        .header-container a {
+            color: var(--olive);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .header-container a:hover {
+            color: var(--gold);
+        }
+
         .logo {
             font-family: 'Alice', serif;
             font-size: 2.5rem;
@@ -507,24 +518,68 @@
         /* ===========================
            BACKGROUND SECTIONS
            =========================== */
-        .whatwedo {
-            background: url('background3.jpg') center/cover no-repeat;
-            background-attachment: fixed;
-            position: relative;
-            padding: 3rem 2rem;
+
+        .about-card {
+            max-width: 1000px;
+            margin: 0 auto 2rem;
+            background-color: var(--beige);
+            padding: 3rem;
+            border-radius: 8px;
         }
 
-        .whatwedo::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(255, 255, 255, 0.8);
-            z-index: 1;
+        .about-card h3 {
+            color: var(--olive);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Poppins', sans-serif;
         }
 
-        .whatwedo .container {
-            position: relative;
-            z-index: 2;
+        .about-card p,
+        .about-card ul {
+            color: var(--stone);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .about-card ul {
+            padding-left: 1.5rem;
+        }
+
+        .about-card strong {
+            color: var(--olive);
+        }
+
+        .about-tagline {
+            color: var(--olive);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            font-style: italic;
+        }
+
+        #contact h3 {
+            color: var(--olive);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 1rem;
+        }
+
+        #contact h4 {
+            color: var(--olive);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        #contact a {
+            font-size: 1.1rem;
+        }
+
+        #contact p {
+            font-size: 1.1rem;
         }
 
         /* ===========================
@@ -840,6 +895,19 @@
                 font-size: 0.85rem;
             }
 
+            .about-card h3 {
+                font-size: 1.1rem;
+            }
+            .about-card h2 {
+                font-size: 1.30rem;
+            }
+
+            .about-card p,
+            .about-card ul,
+            .about-card li {
+                font-size: 0.85rem;
+            }
+
             /* What We Offer - 2 columns on tablet, 3rd item spans full width */
             .what-we-offer-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -874,6 +942,20 @@
 
             .logistics-image-container {
                 padding: 2rem 1rem;
+            }
+
+            .whatwedo .container h3 {
+                font-size: 1.1rem;
+            }
+
+            .whatwedo .container p {
+                font-size: 0.8rem;
+            }
+            #contact .container h3{
+                font-size: 1.3rem;
+            }
+            #contact .container h4 a{
+                font-size: 0.6rem;
             }
         }
 
@@ -938,6 +1020,21 @@
                 line-height: 1.6;
             }
 
+            .about-card h3 {
+                font-size: 1.15rem;
+                margin-bottom: 0.75rem;
+            }
+            .about-card h2 {
+                font-size: 1.30rem;
+            }
+
+            .about-card p,
+            .about-card ul,
+            .about-card li {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+
             .what-we-offer-grid>div {
                 padding: 1.5rem;
                 min-height: auto;
@@ -981,6 +1078,26 @@
                 padding: 1rem;
                 font-size: 0.9rem;
             }
+
+            .whatwedo .container h3 {
+                font-size: 1.15rem;
+            }
+
+            .whatwedo .container p {
+                font-size: 0.9rem;
+            }
+
+            /* About Card Mobile Optimization */
+            .about-card {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            #contact .container h3{
+                font-size: 1.3rem;
+            }
+            #contact .container h4 a{
+                font-size: 0.6rem;
+            }
         }
 
         /* ===========================
@@ -1008,6 +1125,23 @@
             .why-choose-grid p,
             .what-we-offer-grid p {
                 font-size: 0.85rem;
+            }
+
+            .whatwedo .container h3 {
+                font-size: 1rem;
+            }
+
+            .whatwedo .container p {
+                font-size: 0.5rem;
+            }
+            .about-card h2 {
+                font-size: 1.30rem;
+            }
+            #contact .container h3{
+                font-size: 1.2rem;
+            }
+            #contact .container h4 a{
+                font-size: 0.5rem;
             }
         }
     </style>
@@ -1294,25 +1428,19 @@
                 <div class="container">
                     <h2 class="section-title">About Fleur Vine: The Professional Floral Partner</h2>
 
-                    <div
-                        style="max-width: 1000px; margin: 0 auto; background-color: var(--beige); padding: 3rem; border-radius: 8px; margin-bottom: 2rem;">
-                        <h3
-                            style="color: var(--olive); font-size: 1.5rem; margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif;">
-                            Our Identity</h3>
-                        <p style="color: var(--stone); font-size: 1.05rem; line-height: 1.8;">
+                    <div class="about-card">
+                        <h3>Our Identity</h3>
+                        <p>
                             Fleur Vine is a B2B floral procurement partner for the event management and décor industry,
                             specializing in the reliable supply of bulk, export-quality fresh flowers.
-                            <strong style="color: var(--olive);"> We focus exclusively on high-volume requirements,
-                                consistent quality, and dependable delivery for weddings and large events.</strong>
+                            <strong>We focus exclusively on high-volume requirements, consistent quality, and dependable
+                                delivery for weddings and large events.</strong>
                         </p>
                     </div>
 
-                    <div
-                        style="max-width: 1000px; margin: 0 auto; background-color: var(--beige); padding: 3rem; border-radius: 8px; margin-bottom: 2rem;">
-                        <h3
-                            style="color: var(--olive); font-size: 1.5rem; margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif;">
-                            The Backbone of Your Events</h3>
-                        <p style="color: var(--stone); font-size: 1.05rem; line-height: 1.8;">
+                    <div class="about-card">
+                        <h3>The Backbone of Your Events</h3>
+                        <p>
                             We understand that for an event manager, flowers aren't just "gifts"—they are critical
                             infrastructure for your design. A delay or a drop in quality can compromise your entire
                             production. That is why Fleur Vine has built a supply chain designed for professionals. We
@@ -1321,39 +1449,30 @@
                         </p>
                     </div>
 
-                    <div
-                        style="max-width: 1000px; margin: 0 auto; background-color: var(--beige); padding: 3rem; border-radius: 8px; margin-bottom: 2rem;">
-                        <h3
-                            style="color: var(--olive); font-size: 1.5rem; margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif;">
-                            Why Professionals Choose Fleur Vine</h3>
-                        <ul style="color: var(--stone); font-size: 1.05rem; line-height: 1.8; padding-left: 1.5rem;">
-                            <li style="margin-bottom: 1rem;"><strong style="color: var(--olive);">Exclusively
-                                    B2B:</strong> We don't sell to individuals. Every stem we source is reserved for our
-                                professional partners, ensuring you always have priority access to the best stock.</li>
-                            <li style="margin-bottom: 1rem;"><strong style="color: var(--olive);">Volume
-                                    Capacity:</strong> Whether it is a corporate gala or a multi-day destination
-                                wedding, we specialize in high-stem-count fulfillment without compromising on grade or
-                                consistency.</li>
-                            <li style="margin-bottom: 1rem;"><strong style="color: var(--olive);">Quality
-                                    Control:</strong> Our flowers undergo a rigorous selection process. We provide the
-                                "Export Grade" standard—sturdy stems, vibrant heads, and uniform coloring—designed to
-                                withstand the rigors of event environments.</li>
+                    <div class="about-card">
+                        <h3>Why Professionals Choose Fleur Vine</h3>
+                        <ul>
+                            <li style="margin-bottom: 1rem;"><strong>Exclusively B2B:</strong> We don't sell to
+                                individuals. Every stem we source is reserved for our professional partners, ensuring
+                                you always have priority access to the best stock.</li>
+                            <li style="margin-bottom: 1rem;"><strong>Volume Capacity:</strong> Whether it is a corporate
+                                gala or a multi-day destination wedding, we specialize in high-stem-count fulfillment
+                                without compromising on grade or consistency.</li>
+                            <li style="margin-bottom: 1rem;"><strong>Quality Control:</strong> Our flowers undergo a
+                                rigorous selection process. We provide the "Export Grade" standard—sturdy stems, vibrant
+                                heads, and uniform coloring—designed to withstand the rigors of event environments.</li>
                         </ul>
                     </div>
 
-                    <div
-                        style="max-width: 1000px; margin: 0 auto; background-color: var(--beige); padding: 3rem; border-radius: 8px; margin-bottom: 2rem;">
-                        <h3
-                            style="color: var(--olive); font-size: 1.5rem; margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif;">
-                            Direct Business Model</h3>
-                        <p style="color: var(--stone); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                    <div class="about-card">
+                        <h3>Direct Business Model</h3>
+                        <p style="margin-bottom: 1.5rem;">
                             To maintain the highest level of security for large-scale transactions, we operate on a
-                            <strong style="color: var(--olive);">Quote-to-Invoice</strong> basis. By removing automated
-                            payment portals, we ensure a human-to-human verification of every order, providing the
-                            personalized service and financial transparency that high-value B2B partnerships require.
+                            <strong>Quote-to-Invoice</strong> basis. By removing automated payment portals, we ensure a
+                            human-to-human verification of every order, providing the personalized service and financial
+                            transparency that high-value B2B partnerships require.
                         </p>
-                        <p
-                            style="color: var(--olive); font-size: 1.2rem; line-height: 1.8; font-weight: 600; text-align: center; font-style: italic;">
+                        <p class="about-tagline">
                             You manage the event. We supply the flowers.
                         </p>
                     </div>
@@ -1379,18 +1498,14 @@
 
                     <div
                         style="max-width: 700px; margin: 0 auto; background: var(--beige); padding: 3rem; border-radius: 12px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);">
-                        <h3
-                            style="color: var(--olive); font-family: 'Poppins', sans-serif; font-size: 1.8rem; margin-bottom: 2rem; text-align: center; border-bottom: 2px solid var(--gold); padding-bottom: 1rem;">
-                            Business Contact Details</h3>
+                        <h3>Business Contact Details</h3>
 
                         <div style="display: grid; gap: 2rem;">
                             <div style="display: flex; align-items: start; gap: 1.5rem;">
                                 <div style="flex: 1;">
-                                    <h4
-                                        style="color: var(--olive); font-family: 'Poppins', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem;">
-                                        Phone / WhatsApp</h4>
+                                    <h4>Phone / WhatsApp</h4>
                                     <a href="tel:+919316602536"
-                                        style="color: var(--stone); font-size: 1.1rem; text-decoration: none; font-weight: 500;"
+                                        style="color: var(--stone); text-decoration: none; font-weight: 500;"
                                         onclick="trackPhoneClick()">+91
                                         9316602536</a>
                                 </div>
@@ -1398,31 +1513,25 @@
 
                             <div style="display: flex; align-items: start; gap: 1.5rem;">
                                 <div style="flex: 1;">
-                                    <h4
-                                        style="color: var(--olive); font-family: 'Poppins', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem;">
-                                        Email</h4>
+                                    <h4>Email</h4>
                                     <a href="mailto:fleurvine@outlook.com"
-                                        style="color: var(--stone); font-size: 1.1rem; text-decoration: none; font-weight: 500;"
+                                        style="color: var(--stone); text-decoration: none; font-weight: 500;"
                                         onclick="trackEmailClick()">fleurvine@outlook.com</a>
                                 </div>
                             </div>
 
                             <div style=" display: flex; align-items: start; gap: 1.5rem;">
                                 <div style="flex: 1;">
-                                    <h4
-                                        style="color: var(--olive); font-family: 'Poppins', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem;">
-                                        Business Hours</h4>
-                                    <p style="color: var(--stone); font-size: 1.1rem; margin: 0; font-weight: 500;">
+                                    <h4>Business Hours</h4>
+                                    <p style="color: var(--stone); margin: 0; font-weight: 500;">
                                         Mon–Sat, 9:00 AM – 6:00 PM</p>
                                 </div>
                             </div>
 
                             <div style="display: flex; align-items: start; gap: 1.5rem;">
                                 <div style="flex: 1;">
-                                    <h4
-                                        style="color: var(--olive); font-family: 'Poppins', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem;">
-                                        Location</h4>
-                                    <p style="color: var(--stone); font-size: 1.1rem; margin: 0; font-weight: 500;">
+                                    <h4>Location</h4>
+                                    <p style="color: var(--stone); margin: 0; font-weight: 500;">
                                         Vadodara, Gujarat, India</p>
                                 </div>
                             </div>
