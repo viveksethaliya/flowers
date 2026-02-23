@@ -1,0 +1,11 @@
+Model Information:
+* title:	Rose 3D
+* source:	https://sketchfab.com/3d-models/rose-3d-4aad2c8cd1564bc49fddb00df80d5776
+* author:	Julialovehearts (https://sketchfab.com/Julialovehearts)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Rose 3D" (https://sketchfab.com/3d-models/rose-3d-4aad2c8cd1564bc49fddb00df80d5776) by Julialovehearts (https://sketchfab.com/Julialovehearts) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

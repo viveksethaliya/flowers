@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="logo.webp">
 
-    <!-- SEO Meta Tags -->
+    <!-- SEO Meta Tags (Copied from index.html) -->
     <title>Bulk Flowers for Events & Decoration and B2B Flower Supply for Event Planners | Fleur Vine</title>
     <meta name="description"
         content="Fleur Vine supplies bulk flowers for events, weddings, and large-scale decorations. Trusted by event planners and decorators for premium, export-grade fresh flowers with farm-direct sourcing and nationwide delivery across India.">
@@ -30,71 +32,29 @@
     <meta property="og:url" content="https://fleurvine.in">
     <meta property="og:image" content="https://fleurvine.in/logo.webp">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title"
-        content="Bulk Flowers for Events & Decoration and B2B Flower Supply for Event Planners | Fleur Vine">
-    <meta name="twitter:description"
-        content="Fleur Vine supplies bulk flowers for events, weddings, and large-scale decorations. Trusted by event planners and decorators for premium, export-grade fresh flowers with farm-direct sourcing and nationwide delivery across India.">
-    <meta name="twitter:image" content="https://fleurvine.in/logo.webp">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Fleur Vine",
-        "url": "https://fleurvine.in",
-        "logo": "https://fleurvine.in/logo.webp"
-    }
-    </script>
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V3RPS7EZLX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-V3RPS7EZLX');
-
-        // Track WhatsApp button clicks
-        function trackWhatsAppClick(source) {
-            gtag('event', 'whatsapp_click', {
-                'event_category': 'engagement',
-                'event_label': source,
-                'value': 1
-            });
-        }
-
-        // Track phone number clicks
-        function trackPhoneClick() {
-            gtag('event', 'phone_click', {
-                'event_category': 'engagement',
-                'event_label': 'phone_number',
-                'value': 1
-            });
-        }
-
-        // Track email clicks
-        function trackEmailClick() {
-            gtag('event', 'email_click', {
-                'event_category': 'engagement',
-                'event_label': 'email_address',
-                'value': 1
-            });
-        }
-
-        // Track page navigation
-        function trackPageView(pageName) {
-            gtag('event', 'page_view', {
-                'page_title': pageName,
-                'page_location': window.location.href
-            });
-        }
-    </script>
     <style>
-        /* ===========================
-           CSS RESET & ROOT VARIABLES
-           =========================== */
+        :root {
+            /* Palette */
+            --forest: #1a2e1a;
+            --forest-light: #2c4a2c;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --cream: #f9f7f2;
+            --white: #ffffff;
+            --charcoal: #1c1c1c;
+
+            /* Glass */
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+            --nav-glass: rgba(255, 255, 255, 0.75);
+
+            /* Typography */
+            --font-display: 'Cormorant Garamond', serif;
+            --font-body: 'Manrope', sans-serif;
+            --font-logo: 'Alice', serif;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -103,1640 +63,1736 @@
 
         html {
             scroll-behavior: smooth;
-        }
-
-        :root {
-            --beige: #f5f1ed;
-            --ivory: #fffef9;
-            --gold: #d4af87;
-            --olive: #6b7566;
-            --stone: #8b8b83;
+            overflow-x: hidden;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--ivory);
-            color: #333;
+            font-family: var(--font-body);
+            background-color: var(--cream);
+            color: var(--charcoal);
             line-height: 1.6;
+            overflow-x: clip;
         }
 
-        /* ===========================
-           HEADER & NAVIGATION
-           =========================== */
-        header {
-            background-color: var(--beige);
-            padding: 1rem 0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        @supports not (overflow: clip) {
+            body {
+                overflow-x: hidden;
+            }
         }
 
-        .header-container {
-            max-width: 1200px;
+        #app {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 10px;
+            position: relative;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        #hud {
+            display: none;
+        }
+
+        #status {
+            display: none;
+        }
+
+        .container {
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--forest);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--forest);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-primary:hover {
+            color: var(--gold);
+        }
+
+        .btn-primary:hover::before {
+            width: 100%;
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(3px) saturate(1.6) brightness(1.08);
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            box-shadow:
+                0 10px 22px rgba(0, 0, 0, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .btn-glass::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0) 60%),
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.55), transparent 55%);
+            opacity: 0.75;
+            mix-blend-mode: screen;
+            z-index: -1;
+        }
+
+        .btn-glass::after {
+            content: "";
+            position: absolute;
+            inset: -40% -20%;
+            background:
+                linear-gradient(120deg, rgba(255, 255, 255, 0) 0%,
+                    rgba(255, 255, 255, 0.95) 40%,
+                    rgba(255, 255, 255, 0.2) 60%,
+                    rgba(255, 255, 255, 0) 100%);
+            opacity: 0.85;
+            transform: translateX(-120%);
+            animation: liquidShine 3.6s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-glass:hover::after {
+            opacity: 0.9;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.2rem 0;
+            transition: all 0.4s ease;
+            will-change: transform;
+        }
+
+        .header-hidden {
+            transform: translateY(-100%);
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            padding: 0.8rem 0;
+        }
+
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .header-container a {
-            color: var(--olive);
-            text-decoration: none;
-            transition: color 0.3s ease;
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
             cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1001;
         }
 
-        .header-container a:hover {
-            color: var(--gold);
+        .mobile-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled .mobile-toggle span {
+            background-color: var(--forest);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: flex;
+            }
+
+            #desktopNav {
+                display: flex;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.4s ease;
+                z-index: 1000;
+                padding-top: 5rem;
+            }
+
+            #desktopNav.active {
+                right: 0;
+            }
+
+            #desktopNav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            #desktopNav a {
+                color: var(--forest);
+                font-size: 1.5rem;
+            }
+
+            .mobile-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 6px);
+                background-color: var(--forest);
+            }
+
+            .mobile-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -6px);
+                background-color: var(--forest);
+            }
         }
 
         .logo {
-            font-family: 'Alice', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--olive);
-            letter-spacing: 1.5px;
-            cursor: pointer;
-        }
-
-        .logo .star {
-            font-size: 1.5rem;
-        }
-
-        nav {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        nav a {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--olive);
+            font-family: var(--font-logo);
+            font-size: 2rem;
+            color: var(--white);
             text-decoration: none;
-            transition: color 0.3s ease;
-            cursor: pointer;
+            transition: color 0.3s;
         }
 
-        nav a:hover {
+        header.scrolled .logo {
+            color: var(--forest);
+        }
+
+        .logo span {
             color: var(--gold);
         }
 
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--olive);
-            padding: 0.5rem;
-        }
-
-        .mobile-nav {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: var(--beige);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            flex-direction: column;
-            padding: 1rem;
-            gap: 1rem;
-            z-index: 99;
-        }
-
-        .mobile-nav.active {
+        nav ul {
             display: flex;
+            gap: 2.5rem;
+            list-style: none;
         }
 
-        .mobile-nav a {
-            padding: 0.75rem;
-            text-align: center;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-
-        .mobile-nav a:hover {
-            background-color: var(--ivory);
-        }
-
-        /* ===========================
-           HERO SECTION
-           =========================== */
-        .hero {
-            background-color: var(--beige);
-            padding: 18rem 2rem;
-            text-align: center;
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
             position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s;
+        }
+
+        header.scrolled nav a {
+            color: var(--forest);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 100vh;
+            width: 100%;
             overflow: hidden;
+            display: flex;
+            align-items: center;
         }
 
         .hero-video {
             position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            object-fit: cover;
+            filter: brightness(70%);
+        }
+
+        .hero-overlay {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            background: linear-gradient(180deg, rgba(26, 46, 26, 0.5) 0%, rgba(26, 46, 26, 0.3) 100%);
             z-index: 0;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(29, 29, 29, 0.9);
-            z-index: 1;
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            color: var(--white);
+            max-width: 800px;
+            padding-left: 2rem;
         }
 
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.2s;
         }
 
         .hero h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3rem;
-            color: var(--beige);
-            margin-bottom: 1rem;
-            letter-spacing: 0.5px;
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.4s;
         }
 
-        .tagline {
-            font-size: 1.3rem;
-            color: var(--beige);
-            font-weight: 300;
-            margin-bottom: 2rem;
-            font-style: italic;
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.6s;
         }
 
-        .cta-button {
-            background-color: var(--gold);
-            color: white;
-            padding: 1rem 2.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-            width: auto;
-            display: inline-block;
-        }
-
-        .cta-button:hover {
-            background-color: var(--olive);
-            transform: translateY(-2px);
-        }
-
-        /* ===========================
-           LAYOUT UTILITIES
-           =========================== */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        section {
-            padding: 4rem 2rem;
-        }
-
-        .section-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.5rem;
-            color: var(--olive);
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .page {
-            display: none;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        /* ===========================
-           DECORATIVE ELEMENTS
-           =========================== */
-        .decorative-line-bg {
-            position: relative;
-            text-align: center;
-            padding: 2rem 0;
+        .hero-actions {
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.8s;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
+            gap: 1.5rem;
         }
 
-        @media (min-width: 769px) {
-            .decorative-line-bg {
-                background-image: url('decorative-line-desktop.svg');
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: contain;
-                min-height: 80px;
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        .framed-image {
-            position: relative;
-            display: inline-block;
-            padding: 0;
-        }
-
-        .framed-image img {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
-        /* Logistics image container */
-        .logistics-image-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-        }
-
-        /* Home background wrapper */
-        .home-bg-wrapper {
-            position: relative;
-            z-index: 1;
-        }
-
-        .home-bg-wrapper::before {
-            content: "";
+        .scroll-indicator {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('hb.png');
-            background-size: 100% auto;
-            background-repeat: repeat-y;
-            background-position: top center;
-            opacity: 0.1;
-            z-index: -1;
-            pointer-events: none;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            z-index: 10;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards 1.2s;
         }
 
-        /* ===========================
-           GRID LAYOUTS
-           =========================== */
-        /* Why Choose Grid - 2x2 Layout */
-        .why-choose-grid {
+        .scroll-dot {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--white);
+            border-radius: 50%;
+            animation: scrollDown 2s infinite;
+        }
+
+        @keyframes scrollDown {
+            100% {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
+
+            0% {
+                transform: translate(-50%, 20px);
+                opacity: 0;
+            }
+        }
+
+        .section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .bg-dark {
+            background-color: var(--forest);
+            color: var(--cream);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+
+        .subheading {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--forest);
+        }
+
+        .section-header.light h2 {
+            color: var(--cream);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .section-header.light p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .marquee-container {
+            background: var(--gold);
+            padding: 1rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            transform: rotate(-1deg) scale(1.05);
+            margin: 0;
+            z-index: 10;
+        }
+
+        .marquee-track {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee-track span {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--forest);
+            text-transform: uppercase;
+            margin: 0 1rem;
+        }
+
+        .marquee-track .divider {
+            color: var(--cream);
+            font-size: 1rem;
+            vertical-align: middle;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes liquidShine {
+            0% {
+                transform: translateX(-120%) skewX(-8deg);
+            }
+
+            60% {
+                transform: translateX(10%) skewX(-8deg);
+            }
+
+            100% {
+                transform: translateX(140%) skewX(-8deg);
+            }
+        }
+
+        .grid-4 {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
-        .why-choose-grid>div {
-            text-align: center;
-            padding: 2rem;
-            background: var(--beige);
-            border-radius: 8px;
-            min-height: 280px;
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--forest-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover .card-icon {
+            background: var(--gold);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card-icon img {
+            width: 50%;
+            height: 50%;
+            filter: invert(1);
+        }
+
+        .glass-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--forest);
+        }
+
+        .glass-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .service-card {
+            background: var(--forest-light);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
         }
 
-        /* What We Offer Grid - 3 columns */
-        .what-we-offer-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+        .service-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+            border-color: var(--gold);
         }
 
-        .what-we-offer-grid>div {
+        .service-image {
+            height: 240px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-image {
+            transform: scale(1.05);
+        }
+
+        .service-content {
             padding: 2rem;
-            background: var(--beige);
-            border-radius: 8px;
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
-            min-height: 320px;
-            text-align: center;
         }
 
-        /* Logistics Grid - 2 columns (image + content) */
-        .logistics-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
+        .service-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
         }
 
-        /* ===========================
-           PRODUCT GRID
-           =========================== */
+        .service-content p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .text-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .text-link:hover {
+            color: var(--gold);
+            margin-left: 5px;
+        }
+
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 2rem;
+            margin-bottom: 3rem;
         }
 
         .product-card {
-            background-color: var(--beige);
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
+            position: relative;
+            group-hover: hidden;
+            cursor: pointer;
         }
 
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(212, 175, 135, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
 
-        .product-image {
+        .product-img {
+            height: 300px;
             width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--beige) 100%);
-            border-radius: 6px;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            cursor: pointer;
-            transition: transform 0.3s ease;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .product-image:hover {
+        .product-card:hover .product-img {
             transform: scale(1.05);
         }
 
-        .product-name {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem;
-            color: var(--olive);
-            margin-bottom: 0.5rem;
-            height: 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .product-description {
-            color: var(--stone);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            flex-grow: 1;
-        }
-
-        .add-to-cart {
-            background-color: var(--olive);
-            color: white;
-            padding: 0.7rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .add-to-cart:hover {
-            background-color: var(--gold);
-        }
-
-        /* ===========================
-           BACKGROUND SECTIONS
-           =========================== */
-
-        .about-card {
-            max-width: 1000px;
-            margin: 0 auto 2rem;
-            background-color: var(--beige);
-            padding: 3rem;
-            border-radius: 8px;
-        }
-
-        .about-card h3 {
-            color: var(--olive);
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .about-card p,
-        .about-card ul {
-            color: var(--stone);
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .about-card ul {
-            padding-left: 1.5rem;
-        }
-
-        .about-card strong {
-            color: var(--olive);
-        }
-
-        .about-tagline {
-            color: var(--olive);
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-align: center;
-            font-style: italic;
-        }
-
-        #contact h3 {
-            color: var(--olive);
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            border-bottom: 2px solid var(--gold);
-            padding-bottom: 1rem;
-        }
-
-        #contact h4 {
-            color: var(--olive);
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        #contact a {
-            font-size: 1.1rem;
-        }
-
-        #contact p {
-            font-size: 1.1rem;
-        }
-
-        /* ===========================
-           IMAGE MODAL
-           =========================== */
-        .image-modal {
-            display: none;
-            position: fixed;
-            top: 0;
+        .product-info {
+            padding: 1.5rem;
+            background: var(--white);
+            position: absolute;
+            bottom: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            justify-content: center;
+            transform: translateY(60px);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-info {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .product-info {
+                transform: translateY(0);
+                position: relative;
+            }
+
+            .product-img {
+                height: 250px;
+            }
+        }
+
+        .product-info h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--forest);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .bg-gradient {
+            background: linear-gradient(135deg, #f9f7f2 0%, #ebe5da 100%);
+        }
+
+        .logistics-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
-            animation: fadeIn 0.3s ease;
         }
 
-        .image-modal.active {
-            display: flex;
-        }
-
-        .image-modal-content {
+        .logistics-image {
             position: relative;
-            max-width: 90%;
-            max-height: 90%;
-            animation: zoomIn 0.3s ease;
         }
 
-        .image-modal-content img {
+        .logistics-image img {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
 
-        .image-modal-close {
+        .float-card {
             position: absolute;
-            top: -40px;
-            right: 0;
-            background: var(--gold);
-            color: white;
-            border: none;
+            bottom: 30px;
+            right: -20px;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .timeline {
+            margin-top: 3rem;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-icon {
             width: 40px;
             height: 40px;
+            background: var(--gold);
+            color: var(--forest);
             border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .timeline-text h4 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: var(--forest);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+            background: var(--white);
+            padding: 4rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .check-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .check-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .check-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
             font-weight: bold;
         }
 
-        .image-modal-close:hover {
-            background: var(--olive);
-            transform: rotate(90deg);
+        .about-highlight {
+            background: var(--forest);
+            color: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+        blockquote {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            line-height: 1.3;
+            font-style: italic;
+            margin-bottom: 2rem;
         }
 
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
+        .quote-box h4 {
+            color: var(--gold);
+            margin-bottom: 0.5rem;
         }
 
-        /* ===========================
-           TOAST NOTIFICATIONS
-           =========================== */
-        .toast {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--olive);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 6px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 1002;
-            transform: translateX(400px);
-            transition: transform 0.3s ease;
-            font-weight: 500;
+        .quote-box p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-details {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 1.5rem;
         }
 
-        .toast.show {
-            transform: translateX(0);
-        }
-
-        .toast.success {
-            background: var(--gold);
-        }
-
-        /* ===========================
-           WHATSAPP ELEMENTS
-           =========================== */
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-image: url('whap.png');
-            background-size: 75%;
-            background-position: center;
-            background-repeat: no-repeat;
-            width: 60px;
-            height: 60px;
+        .contact-item .icon {
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-            z-index: 999;
-            transition: all 0.3s ease;
-        }
-
-        .floating-whatsapp:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
-        }
-
-        .whatsapp-loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1003;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
         }
 
-        .whatsapp-loading.show {
-            opacity: 1;
-            visibility: visible;
+        .contact-item label {
+            display: block;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--gold);
+            margin-bottom: 0.3rem;
         }
 
-        .whatsapp-loading-content {
-            background: var(--ivory);
-            padding: 2rem;
-            border-radius: 8px;
-            text-align: center;
-            max-width: 300px;
-        }
-
-        .whatsapp-spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid var(--beige);
-            border-top: 3px solid #25D366;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* ===========================
-           FOOTER
-           =========================== */
-        footer {
-            background-color: var(--beige);
-            padding: 2rem;
-            text-align: center;
-            color: var(--stone);
-            font-size: 0.9rem;
-            margin-top: 0;
-        }
-
-        .contact-us {
-            background: transparent;
-            max-width: 1200px;
-            margin: 10px auto;
-            padding: 0 2rem;
-            text-align: center;
-        }
-
-        .contact-us a {
+        .contact-item a,
+        .contact-item span {
+            color: var(--white);
             text-decoration: none;
-            color: #333;
+            font-size: 1.2rem;
+            font-family: var(--font-display);
         }
 
-        /* ===========================
-           RESPONSIVE DESIGN - TABLET
-           =========================== */
+        .main-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem 0;
+            margin-top: auto;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .float-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            z-index: 100;
+            transform: translate3d(0, 0, 0);
+            will-change: transform;
+            backface-visibility: hidden;
+        }
+
+        @media (hover: hover) {
+            .float-whatsapp {
+                transition: transform 0.3s ease;
+            }
+
+            .float-whatsapp:hover {
+                transform: translate3d(0, 0, 0) scale(1.1);
+            }
+        }
+
         @media (max-width: 768px) {
-            .header-container {
-                padding: 0 1rem;
+            .float-whatsapp {
+                bottom: 20px;
+                right: 20px;
+                bottom: calc(20px + env(safe-area-inset-bottom));
+                transition: none !important;
+            }
+        }
+
+        .float-whatsapp img {
+            width: 35px;
+            height: 35px;
+        }
+
+        @media (max-width: 900px) {
+
+            .logistics-layout,
+            .about-grid,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
 
-            .logo {
-                font-size: 1.8rem;
+            .logistics-image {
+                order: -1;
             }
 
-            nav>a {
-                display: none;
+            .float-card {
+                right: 16px;
+                bottom: 16px;
+                max-width: calc(100% - 32px);
             }
 
-            .menu-toggle {
-                display: block;
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .about-grid {
+                padding: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .reveal-text,
+        .reveal-card,
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .is-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+
+            .section {
+                padding: 5rem 0;
             }
 
             .hero {
-                padding: 7rem 1rem;
+                padding-top: 6rem;
+            }
+
+            .hero-content {
+                padding-left: 0;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-actions {
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-actions .btn {
+                width: min(260px, 100%);
+                text-align: center;
+            }
+
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .grid-3,
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid,
+            .logistics-layout,
+            .contact-wrapper {
+                gap: 2rem;
+                padding: 1.5rem;
+            }
+
+            .about-text,
+            .about-highlight {
+                padding: 1.5rem;
+            }
+
+            .contact-map {
+                min-height: 250px !important;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .scroll-indicator {
+                bottom: calc(24px + env(safe-area-inset-bottom));
+            }
+
+            .marquee-container {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
             }
 
             .hero h1 {
                 font-size: 2.2rem;
             }
 
-            .tagline {
-                font-size: 1.1rem;
+            .btn {
+                padding: 0.8rem 1.5rem;
             }
 
-            .cta-button {
-                padding: 0.9rem 2rem;
-                font-size: 0.95rem;
+            blockquote {
+                font-size: 1.4rem;
             }
 
-            .section-title {
-                font-size: 2rem;
-                margin-bottom: 2rem;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .product-card {
-                padding: 1.25rem;
-                max-width: 350px;
-                margin: 0 auto;
-                min-height: 400px;
-            }
-
-            .product-image {
-                height: 180px;
-            }
-
-            .product-name {
-                font-size: 1.3rem;
-                height: 2.5rem;
-            }
-
-            .image-modal-close {
-                top: 10px;
-                right: 10px;
-            }
-
-            .toast {
-                right: 10px;
-                left: 10px;
-                transform: translateY(-100px);
-            }
-
-            .toast.show {
-                transform: translateY(0);
-            }
-
-            /* Grid layouts for tablet */
-            section [style*="grid-template-columns: 1fr 1.5fr"],
-            section [style*="grid-template-columns: 1fr 1fr"] {
-                grid-template-columns: 1fr !important;
-            }
-
-            /* Why Choose - Keep 2x2 grid on tablet */
-            .why-choose-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-
-            .why-choose-grid>div {
-                padding: 1.5rem;
-                min-height: 240px;
-            }
-
-            .why-choose-grid h3 {
-                font-size: 1.1rem;
-            }
-
-            .why-choose-grid p {
-                font-size: 0.85rem;
-            }
-
-            .about-card h3 {
-                font-size: 1.1rem;
-            }
-            .about-card h2 {
-                font-size: 1.30rem;
-            }
-
-            .about-card p,
-            .about-card ul,
-            .about-card li {
-                font-size: 0.85rem;
-            }
-
-            /* What We Offer - 2 columns on tablet, 3rd item spans full width */
-            .what-we-offer-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-
-            .what-we-offer-grid>div {
-                padding: 1.5rem;
-                min-height: 280px;
-            }
-
-            .what-we-offer-grid>div:nth-child(3) {
-                grid-column: 1 / -1;
-                max-width: 400px;
-                margin: 0 auto;
-                width: 100%;
-            }
-
-            .what-we-offer-grid h3 {
-                font-size: 1.1rem;
-            }
-
-            .what-we-offer-grid p {
-                font-size: 0.85rem;
-            }
-
-            /* Logistics - Stack vertically on tablet */
-            .logistics-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .logistics-image-container {
-                padding: 2rem 1rem;
-            }
-
-            .whatwedo .container h3 {
-                font-size: 1.1rem;
-            }
-
-            .whatwedo .container p {
-                font-size: 0.8rem;
-            }
-            #contact .container h3{
-                font-size: 1.3rem;
-            }
-            #contact .container h4 a{
-                font-size: 0.6rem;
+            .contact-item a,
+            .contact-item span {
+                font-size: 1rem;
             }
         }
 
-        /* ===========================
-           RESPONSIVE DESIGN - MOBILE
-           =========================== */
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.5rem;
-            }
-
+        @supports (height: 100svh) {
             .hero {
-                padding: 6rem 1rem;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .tagline {
-                font-size: 1rem;
-            }
-
-            .cta-button {
-                padding: 0.8rem 1.8rem;
-                font-size: 0.9rem;
-            }
-
-            .section-title {
-                font-size: 1.7rem;
-            }
-
-            .product-card {
-                max-width: 320px;
-                min-height: 380px;
-            }
-
-            .product-name {
-                font-size: 1.2rem;
-            }
-
-            /* Stack all grids on very small screens */
-            .why-choose-grid,
-            .what-we-offer-grid {
-                grid-template-columns: 1fr;
-                gap: 1.25rem;
-            }
-
-            .why-choose-grid>div {
-                padding: 1.5rem;
-                min-height: auto;
-            }
-
-            /* FIXED: Proper font sizes for mobile */
-            .why-choose-grid h3 {
-                font-size: 1.15rem;
-                margin-bottom: 0.75rem;
-            }
-
-            .why-choose-grid p {
-                font-size: 0.9rem;
-                line-height: 1.6;
-            }
-
-            .about-card h3 {
-                font-size: 1.15rem;
-                margin-bottom: 0.75rem;
-            }
-            .about-card h2 {
-                font-size: 1.30rem;
-            }
-
-            .about-card p,
-            .about-card ul,
-            .about-card li {
-                font-size: 0.9rem;
-                line-height: 1.6;
-            }
-
-            .what-we-offer-grid>div {
-                padding: 1.5rem;
-                min-height: auto;
-            }
-
-            .what-we-offer-grid>div:nth-child(3) {
-                grid-column: 1;
-                max-width: 100%;
-            }
-
-            /* FIXED: Proper font sizes for mobile */
-            .what-we-offer-grid h3 {
-                font-size: 1.15rem;
-                margin-bottom: 0.75rem;
-            }
-
-            .what-we-offer-grid p {
-                font-size: 0.9rem;
-                line-height: 1.6;
-            }
-
-            .logistics-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .logistics-image-container {
-                padding: 1.5rem 0.5rem;
-            }
-
-            .logistics-grid h3 {
-                font-size: 1.2rem;
-            }
-
-            .logistics-grid p {
-                font-size: 0.95rem;
-            }
-
-            /* Contact section mobile */
-            .contact-us {
-                padding: 1rem;
-                font-size: 0.9rem;
-            }
-
-            .whatwedo .container h3 {
-                font-size: 1.15rem;
-            }
-
-            .whatwedo .container p {
-                font-size: 0.9rem;
-            }
-
-            /* About Card Mobile Optimization */
-            .about-card {
-                padding: 1.5rem;
-                margin-bottom: 1.5rem;
-            }
-            #contact .container h3{
-                font-size: 1.3rem;
-            }
-            #contact .container h4 a{
-                font-size: 0.6rem;
-            }
-        }
-
-        /* ===========================
-           EXTRA SMALL SCREENS
-           =========================== */
-        @media (max-width: 360px) {
-            .hero h1 {
-                font-size: 1.5rem;
-            }
-
-            .tagline {
-                font-size: 0.9rem;
-            }
-
-            .why-choose-grid>div,
-            .what-we-offer-grid>div {
-                padding: 1.25rem;
-            }
-
-            .why-choose-grid h3,
-            .what-we-offer-grid h3 {
-                font-size: 1.05rem;
-            }
-
-            .why-choose-grid p,
-            .what-we-offer-grid p {
-                font-size: 0.85rem;
-            }
-
-            .whatwedo .container h3 {
-                font-size: 1rem;
-            }
-
-            .whatwedo .container p {
-                font-size: 0.5rem;
-            }
-            .about-card h2 {
-                font-size: 1.30rem;
-            }
-            #contact .container h3{
-                font-size: 1.2rem;
-            }
-            #contact .container h4 a{
-                font-size: 0.5rem;
+                height: 100svh;
+                min-height: 100svh;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- ===========================
-         HEADER
-         =========================== -->
-    <header>
-        <div class="header-container">
-            <div class="logo" onclick="goHome()">
-                <i>Fleur <span class="star">✦</span> Vine</i>
-            </div>
-            <nav>
-                <a href="#home" onclick="showPage('home'); return false;">Home</a>
-                <a href="#about" onclick="showPage('about'); return false;">About</a>
-                <a href="#orders" onclick="showPage('orders'); return false;">All Flowers</a>
-                <a href="#contact" onclick="showPage('contact'); return false;">Contact</a>
-                <div class="menu-toggle" id="menuToggle">☰</div>
+
+    <header id="mainHeader">
+        <div class="container nav-container">
+            <a href="#" class="logo">Fleur <span>✦</span> Vine</a>
+            <button class="mobile-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="desktopNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Collection</a></li>
+                    <li><a href="#logistics">Logistics</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </nav>
-            <div class="mobile-nav" id="mobileNav">
-                <a href="#home" onclick="showPage('home'); return false;">Home</a>
-                <a href="#about" onclick="showPage('about'); return false;">About</a>
-                <a href="#orders" onclick="showPage('orders'); return false;">All Flowers</a>
-                <a href="#contact" onclick="showPage('contact'); return false;">Contact Us</a>
-            </div>
+            <a href="#contact" class="btn btn-primary nav-cta" style="padding: 0.7rem 1.8rem; font-size: 0.9rem;">Get
+                Quote</a>
         </div>
     </header>
 
-    <!-- ===========================
-         HOME PAGE
-         =========================== -->
-    <div id="home" class="page active">
-        <!-- Hero Section -->
-        <section class="hero">
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+    <section class="hero" id="home">
+        <video class="hero-video" autoplay muted loop playsinline poster="title1.jpg">
+            <source src="video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+
+        <div class="container">
             <div class="hero-content">
-                <h1>Fleur Vine</h1>
-                <p class="tagline">Fresh-Cut Flowers for Events, Wholesale & Export Supply</p>
-                <button class="cta-button" onclick="showPage('orders')">View Wholesale Catalog</button>
+                <div class="hero-badge">B2B Floral Supply</div>
+                <h1>Fresh-cut flowers for<br>event professionals.</h1>
+                <p>Farm-direct, export-grade blooms delivered across India for weddings and large-scale event decor.</p>
+                <div class="hero-actions">
+                    <a href="#products" class="btn btn-primary">View Catalog</a>
+                    <a href="#contact" class="btn btn-glass">Request Quote</a>
+                </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Introduction Section -->
-        <div class="home-bg-wrapper">
-            <section style="padding: 4rem 2rem;">
-                <div class="container">
-                    <div class="decorative-line-bg"
-                        style="font-family: 'Alice', serif; font-weight: 500; color: var(--olive); letter-spacing: 1.5px;">
-                        <i>Fleur <span class="star">✦</span> Vine</i>
-                    </div>
+        <div class="scroll-indicator">
+            <div class="scroll-dot"></div>
+        </div>
+    </section>
 
-                    <p
-                        style="margin: 1.5rem; margin-bottom: 4rem; font-size: 1.05rem; line-height: 1.8; color: var(--olive);">
-                        Fleur Vine supplies premium bulk flowers for events, weddings, and large-scale decorations
-                        across India.
-                        We work exclusively with event planners, decorators, and professional organizers who require
-                        reliable bulk flower orders,
-                        export-grade freshness, and dependable delivery for event execution.
-                    </p>
-
-                    <!-- Why Choose Section -->
-                    <h2 class="section-title">Why Choose Fleur Vine?</h2>
-                    <div
-                        style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: center; margin-bottom: 3rem;">
-                        <div style="display: flex; justify-content: center; align-items: center;">
-                            <div class="framed-image">
-                                <img src="output.webp" alt="Fleur Vine Flowers"
-                                    style="width: 100%; max-width: 500px; height: auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);">
-                            </div>
-                        </div>
-                        <div class="why-choose-grid">
-                            <div>
-                                <div
-                                    style="width: 60px; height: 60px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
-                                    <img src="svg/fresh.svg" alt="Farm Direct" style="width: 100%; height: 100%;">
-                                </div>
-                                <h3
-                                    style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
-                                    Farm-Direct Freshness</h3>
-                                <p style="color: var(--stone);">Farm-direct sourcing ensures 24-48 hour freshness upon
-                                    arrival.</p>
-                            </div>
-                            <div>
-                                <div
-                                    style="width: 60px; height: 60px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
-                                    <img src="svg/high-volume.svg" alt="High Volume" style="width: 100%; height: 100%;">
-                                </div>
-                                <h3
-                                    style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
-                                    High-Volume Capacity</h3>
-                                <p style="color: var(--stone);">No order is too large. We specialize in high-stem-count
-                                    fulfillment.</p>
-                            </div>
-                            <div>
-                                <div
-                                    style="width: 60px; height: 60px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
-                                    <img src="svg/deadline.svg" alt="Deadline Oriented"
-                                        style="width: 100%; height: 100%;">
-                                </div>
-                                <h3
-                                    style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
-                                    Deadline-Oriented Dispatch</h3>
-                                <p style="color: var(--stone);">Our dispatch schedules are aligned with agreed delivery
-                                    timelines for bulk flower supply.</p>
-                            </div>
-                            <div>
-                                <div
-                                    style="width: 60px; height: 60px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
-                                    <img src="svg/high-quality.svg" alt="Export Grade"
-                                        style="width: 100%; height: 100%;">
-                                </div>
-                                <h3
-                                    style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
-                                    Export-Grade Quality</h3>
-                                <p style="color: var(--stone);">A-Grade export quality blooms only.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- What We Offer Section -->
-            <section style="padding: 4rem 2rem;">
-                <div class="container">
-                    <h2 class="section-title">What We Offer</h2>
-                    <div class="what-we-offer-grid">
-                        <div>
-                            <div
-                                style="width: 60px; height: 60px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
-                                <img src="svg/storage.svg" alt="Bulk Supply" style="width: 100%; height: 100%;">
-                            </div>
-                            <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
-                                Bulk Flower Supply</h3>
-                            <p style="color: var(--stone); margin-bottom: 1rem; flex-grow: 1;">Consistent, high-quality
-                                flowers supplied in bulk quantities for professional event and décor businesses.</p>
-                            <button class="cta-button" onclick="showPage('orders')">View Catalog</button>
-                        </div>
-                        <div>
-                            <div
-                                style="width: 60px; height: 60px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
-                                <img src="svg/hand-shake.svg" alt="Wholesale" style="width: 100%; height: 100%;">
-                            </div>
-                            <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
-                                Wholesale Partnerships</h3>
-                            <p style="color: var(--stone); margin-bottom: 1rem; flex-grow: 1;">Preferred pricing and
-                                priority allocation for recurring bulk flower procurement.</p>
-                            <button class="cta-button" onclick="openWhatsApp()">Partner With Us</button>
-                        </div>
-                        <div>
-                            <div
-                                style="width: 60px; height: 60px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
-                                <img src="svg/cold-chain.svg" alt="Cold Chain" style="width: 100%; height: 100%;">
-                            </div>
-                            <h3 style="color: var(--olive); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">
-                                Cold-Chain Handling</h3>
-                            <p style="color: var(--stone); margin-bottom: 1rem; flex-grow: 1;">Temperature-controlled
-                                handling from farm to dispatch point to maintain maximum vase life.</p>
-                            <button class="cta-button" onclick="openWhatsApp()">Learn More</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Logistics Section -->
-            <section style="padding: 4rem 2rem;">
-                <div class="container">
-                    <h2 class="section-title">Logistics & Delivery</h2>
-                    <div class="logistics-grid">
-                        <div class="logistics-image-container">
-                            <div class="framed-image">
-                                <img src="tranport.jpg" alt="Transport and Logistics"
-                                    style="width: 100%; max-width: 500px; height: auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);">
-                            </div>
-                        </div>
-                        <div>
-                            <div
-                                style="background: var(--beige); padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
-                                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                                    <div
-                                        style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                        <img src="svg/delivery-man.svg" alt="Professional Packaging"
-                                            style="width: 100%; height: 100%;">
-                                    </div>
-                                    <h3
-                                        style="color: var(--olive); margin: 0; font-family: 'Poppins', sans-serif; font-size: 1.5rem;">
-                                        Professional Packaging</h3>
-                                </div>
-                                <p style="color: var(--stone); font-size: 1.05rem; line-height: 1.8;">
-                                    Every order is wrapped in protective hydration sleeves and corrugated B2B-grade
-                                    boxes to ensure your blooms arrive fresh and damage-free. Daily dispatches via Air
-                                    and Train or road transport to ensure flowers reach buyers fresh and in optimal
-                                    condition.
-                                </p>
-                            </div>
-                            <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
-                                <div
-                                    style="padding: 1.5rem; background: var(--beige); border-radius: 8px; display: flex; align-items: center; gap: 1rem;">
-                                    <div
-                                        style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                        <img src="svg/train.svg" alt="Train" style="width: 100%; height: 100%;">
-                                    </div>
-                                    <div>
-                                        <h3
-                                            style="color: var(--olive); margin-bottom: 0.5rem; font-family: 'Poppins', sans-serif;">
-                                            Train Parcel</h3>
-                                        <p style="color: var(--stone); margin: 0;">Fast + economical delivery option for
-                                            nationwide shipping with daily dispatches</p>
-                                    </div>
-                                </div>
-                                <div
-                                    style="padding: 1.5rem; background: var(--beige); border-radius: 8px; display: flex; align-items: center; gap: 1rem;">
-                                    <div
-                                        style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                        <img src="svg/truck.svg" alt="Road" style="width: 100%; height: 100%;">
-                                    </div>
-                                    <div>
-                                        <h3
-                                            style="color: var(--olive); margin-bottom: 0.5rem; font-family: 'Poppins', sans-serif;">
-                                            Road Transport</h3>
-                                        <p style="color: var(--stone); margin: 0;">Professional road logistics for
-                                            regional delivery, coordinated to match agreed delivery timelines.</p>
-                                    </div>
-                                </div>
-                                <div
-                                    style="padding: 1.5rem; background: var(--beige); border-radius: 8px; display: flex; align-items: center; gap: 1rem;">
-                                    <div
-                                        style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                        <img src="svg/freight.svg" alt="Air" style="width: 100%; height: 100%;">
-                                    </div>
-                                    <div>
-                                        <h3
-                                            style="color: var(--olive); margin-bottom: 0.5rem; font-family: 'Poppins', sans-serif;">
-                                            Air Cargo</h3>
-                                        <p style="color: var(--stone); margin: 0;">Express delivery for urgent event
-                                            deadlines and time-sensitive orders across India</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Contact Info -->
-            <section class="contact-us">
-                <p>E-mail: <a href="mailto:fleurvine@outlook.com" onclick="trackEmailClick()">fleurvine@outlook.com</a>
-                </p>
-                <p>Phone: <a href="tel:+919316602536" onclick="trackPhoneClick()">+91 9316602536</a></p>
-            </section>
+    <div class="marquee-container">
+        <div class="marquee-track">
+            <span>Roses</span> <span class="divider">✦</span>
+            <span>Gerbera</span> <span class="divider">✦</span>
+            <span>Chrysanthemum</span> <span class="divider">✦</span>
+            <span>Orchid</span> <span class="divider">✦</span>
+            <span>Gypsophila</span> <span class="divider">✦</span>
+            <span>Lilies</span> <span class="divider">✦</span>
+            <span>Carnations</span> <span class="divider">✦</span>
+            <span>Roses</span> <span class="divider">✦</span>
+            <span>Gerbera</span> <span class="divider">✦</span>
+            <span>Chrysanthemum</span> <span class="divider">✦</span>
+            <span>Orchid</span> <span class="divider">✦</span>
+            <span>Roses</span> <span class="divider">✦</span>
+            <span>Gerbera</span> <span class="divider">✦</span>
+            <span>Chrysanthemum</span> <span class="divider">✦</span>
+            <span>Orchid</span> <span class="divider">✦</span>
+            <span>Gypsophila</span> <span class="divider">✦</span>
+            <span>Lilies</span> <span class="divider">✦</span>
+            <span>Carnations</span> <span class="divider">✦</span>
+            <span>Roses</span> <span class="divider">✦</span>
+            <span>Gerbera</span> <span class="divider">✦</span>
+            <span>Chrysanthemum</span> <span class="divider">✦</span>
+            <span>Orchid</span> <span class="divider">✦</span>
+            <span>Roses</span> <span class="divider">✦</span>
+            <span>Gerbera</span> <span class="divider">✦</span>
+            <span>Chrysanthemum</span> <span class="divider">✦</span>
+            <span>Orchid</span> <span class="divider">✦</span>
+            <span>Gypsophila</span> <span class="divider">✦</span>
+            <span>Lilies</span> <span class="divider">✦</span>
+            <span>Carnations</span> <span class="divider">✦</span>
+            <span>Roses</span> <span class="divider">✦</span>
+            <span>Gerbera</span> <span class="divider">✦</span>
+            <span>Chrysanthemum</span> <span class="divider">✦</span>
+            <span>Orchid</span> <span class="divider">✦</span>
         </div>
     </div>
 
-    <!-- ===========================
-         ORDERS PAGE
-         =========================== -->
-    <div id="orders" class="page">
-        <div class="home-bg-wrapper">
-            <section style="padding-top: 2rem;">
-                <div class="container">
-                    <h2 class="section-title">All Products</h2>
-                    <div class="products-grid" id="productsGrid"></div>
-                    <div
-                        style="margin-top: 1rem; color: var(--stone); font-size: 1.05rem; line-height: 1.8; text-align: center;">
-                        The varieties displayed above represent our most frequently supplied flowers. Through our
-                        extensive farmer network, we source a wide range of seasonal and specialty flowers based on
-                        client requirements.
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal-text">
+                <div id="app"></div>
+                <div id="hud">
+                    <p id="status">Loading rose model...</p>
+                </div>
+                <span class="subheading">Why Fleur Vine?</span>
+                <h2>The Professional Standard</h2>
+                <p>We work exclusively with event planners, decorators, and professional organizers who require reliable
+                    bulk flower orders, export-grade freshness, and dependable delivery.</p>
+            </div>
+
+            <div class="grid-4">
+                <div class="glass-card reveal-card">
+                    <div class="card-icon">
+                        <img src="svg/fresh.svg" alt="Freshness">
+                    </div>
+                    <h3>Farm-Direct Freshness</h3>
+                    <p>Sourcing directly from growers ensures 24-48 hour freshness upon arrival at your venue.</p>
+                </div>
+
+                <div class="glass-card reveal-card" style="transition-delay: 0.1s;">
+                    <div class="card-icon">
+                        <img src="svg/high-volume.svg" alt="Volume">
+                    </div>
+                    <h3>High-Volume Capacity</h3>
+                    <p>No order is too large. We specialize in high-stem-count fulfillment for grand events.</p>
+                </div>
+
+                <div class="glass-card reveal-card" style="transition-delay: 0.2s;">
+                    <div class="card-icon">
+                        <img src="svg/deadline.svg" alt="Deadlines">
+                    </div>
+                    <h3>Deadline-Oriented</h3>
+                    <p>Our dispatch schedules are rigorously aligned with your agreed delivery timelines.</p>
+                </div>
+
+                <div class="glass-card reveal-card" style="transition-delay: 0.3s;">
+                    <div class="card-icon">
+                        <img src="svg/high-quality.svg" alt="Quality">
+                    </div>
+                    <h3>Export-Grade Quality</h3>
+                    <p>We supply only A-Grade export quality blooms, inspected for uniformity and vibrancy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-dark">
+        <div class="container">
+            <div class="section-header light reveal-text">
+                <span class="subheading">Our Services</span>
+                <h2>Comprehensive Floral Solutions</h2>
+            </div>
+
+            <div class="grid-3">
+                <div class="service-card reveal-up">
+                    <div class="service-image" style="background-image: url('rose.jpeg');"></div>
+                    <div class="service-content">
+                        <h3>Bulk Flower Supply</h3>
+                        <p>Consistent, high-quality flowers supplied in bulk quantities for professional event and décor
+                            businesses.</p>
+                        <a href="#products" class="text-link">View Catalog &rarr;</a>
                     </div>
                 </div>
-            </section>
+
+                <div class="service-card reveal-up" style="transition-delay: 0.1s;">
+                    <div class="service-image" style="background-image: url('pexels-pnw-prod-8276364.png');"></div>
+                    <div class="service-content">
+                        <h3>Wholesale Partnerships</h3>
+                        <p>Preferred pricing and priority allocation for recurring bulk flower procurement partners.</p>
+                        <a href="#contact" class="text-link">Partner With Us &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="service-card reveal-up" style="transition-delay: 0.2s;">
+                    <div class="service-image" style="background-image: url('view-ice-cube-with-flower.png');"></div>
+                    <div class="service-content">
+                        <h3>Cold-Chain Handling</h3>
+                        <p>Temperature-controlled handling from farm to dispatch point to maintain maximum vase life.
+                        </p>
+                        <a href="#logistics" class="text-link">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- ===========================
-         ABOUT PAGE
-         =========================== -->
-    <div id="about" class="page">
-        <div class="home-bg-wrapper">
-            <section class="whatwedo">
-                <div class="container">
-                    <h2 class="section-title">About Fleur Vine: The Professional Floral Partner</h2>
+    <section class="section" id="products">
+        <div class="container">
+            <div class="section-header reveal-text">
+                <span class="subheading">Current Availability</span>
+                <h2>Wholesale Collection</h2>
+                <p>Popular varieties for event-ready supply. Ask us for seasonal or specialty requests.</p>
+            </div>
 
-                    <div class="about-card">
-                        <h3>Our Identity</h3>
-                        <p>
-                            Fleur Vine is a B2B floral procurement partner for the event management and décor industry,
-                            specializing in the reliable supply of bulk, export-quality fresh flowers.
-                            <strong>We focus exclusively on high-volume requirements, consistent quality, and dependable
-                                delivery for weddings and large events.</strong>
-                        </p>
+            <div class="products-grid" id="productsGrid">
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;" class="reveal-up">
+                <p style="color: #666; margin-bottom: 2rem;">looking for something specific?</p>
+                <a href="#contact" class="btn btn-primary">Request Custom Order</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-gradient" id="logistics">
+        <div class="container">
+            <div class="logistics-layout">
+                <div class="logistics-image reveal-card">
+                    <img src="tranport.png" alt="Logistics">
+                    <div class="float-card">
+                        <span>Daily Dispatch</span>
+                        <strong>Nationwide</strong>
                     </div>
+                </div>
+                <div class="logistics-content reveal-text">
+                    <span class="subheading">Logistics & Delivery</span>
+                    <h2>Engineered for Events</h2>
+                    <p style="margin-bottom: 2rem;">Every order is wrapped in protective hydration sleeves and
+                        corrugated B2B-grade boxes. We utilize air, train, and road transport to ensure flowers reach
+                        buyers fresh.</p>
 
-                    <div class="about-card">
-                        <h3>The Backbone of Your Events</h3>
-                        <p>
-                            We understand that for an event manager, flowers aren't just "gifts"—they are critical
-                            infrastructure for your design. A delay or a drop in quality can compromise your entire
-                            production. That is why Fleur Vine has built a supply chain designed for professionals. We
-                            source directly from the finest growers to ensure that when our blooms reach your location,
-                            they possess the structural integrity and freshness required for large-scale installations.
-                        </p>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-icon">1</div>
+                            <div class="timeline-text">
+                                <h4>Confirm Requirements</h4>
+                                <p>We align on stems, grades, and delivery windows.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">2</div>
+                            <div class="timeline-text">
+                                <h4>Secure Supply</h4>
+                                <p>Grower allocations and export-grade inspections.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">3</div>
+                            <div class="timeline-text">
+                                <h4>Dispatch Nationwide</h4>
+                                <p>Road, air, or rail delivery to match event timelines.</p>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <div class="about-card">
-                        <h3>Why Professionals Choose Fleur Vine</h3>
-                        <ul>
-                            <li style="margin-bottom: 1rem;"><strong>Exclusively B2B:</strong> We don't sell to
-                                individuals. Every stem we source is reserved for our professional partners, ensuring
-                                you always have priority access to the best stock.</li>
-                            <li style="margin-bottom: 1rem;"><strong>Volume Capacity:</strong> Whether it is a corporate
-                                gala or a multi-day destination wedding, we specialize in high-stem-count fulfillment
-                                without compromising on grade or consistency.</li>
-                            <li style="margin-bottom: 1rem;"><strong>Quality Control:</strong> Our flowers undergo a
-                                rigorous selection process. We provide the "Export Grade" standard—sturdy stems, vibrant
-                                heads, and uniform coloring—designed to withstand the rigors of event environments.</li>
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-container reveal-up">
+                <div class="section-header">
+                    <span class="subheading">About Us</span>
+                    <h2>Your Professional Partner</h2>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h3>The Entity</h3>
+                        <p>Fleur Vine is a B2B floral procurement partner for the event management and décor industry.
+                            We focus exclusively on high-volume requirements, consistent quality, and dependable
+                            delivery for weddings and large events.</p>
+
+                        <h3 style="margin-top: 2rem;">Why Professionals Choose Us</h3>
+                        <ul class="check-list">
+                            <li><strong>Exclusively B2B:</strong> We don't sell to individuals. Priority access for
+                                partners.</li>
+                            <li><strong>Volume Capacity:</strong> Specialized in high-stem-count fulfillment.</li>
+                            <li><strong>Quality Control:</strong> "Export Grade" standard—sturdy stems, vibrant heads.
+                            </li>
                         </ul>
                     </div>
-
-                    <div class="about-card">
-                        <h3>Direct Business Model</h3>
-                        <p style="margin-bottom: 1.5rem;">
-                            To maintain the highest level of security for large-scale transactions, we operate on a
-                            <strong>Quote-to-Invoice</strong> basis. By removing automated payment portals, we ensure a
-                            human-to-human verification of every order, providing the personalized service and financial
-                            transparency that high-value B2B partnerships require.
-                        </p>
-                        <p class="about-tagline">
-                            You manage the event. We supply the flowers.
-                        </p>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-
-    <!-- ===========================
-         CONTACT PAGE
-         =========================== -->
-    <div id="contact" class="page">
-        <div class="home-bg-wrapper">
-            <section style="padding: 4rem 2rem;">
-                <div class="container">
-                    <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
-                        <h2 class="section-title">Contact Fleur Vine</h2>
-                        <p style="color: var(--olive); font-size: 1.2rem; margin-bottom: 1rem; font-weight: 500;">For
-                            bulk flower supply and B2B enquiries only</p>
-                        <p style="color: var(--stone); font-size: 0.95rem; font-style: italic;">We operate exclusively
-                            as a B2B flower supplier and do not handle retail or gift orders.</p>
-                    </div>
-
-                    <div
-                        style="max-width: 700px; margin: 0 auto; background: var(--beige); padding: 3rem; border-radius: 12px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);">
-                        <h3>Business Contact Details</h3>
-
-                        <div style="display: grid; gap: 2rem;">
-                            <div style="display: flex; align-items: start; gap: 1.5rem;">
-                                <div style="flex: 1;">
-                                    <h4>Phone / WhatsApp</h4>
-                                    <a href="tel:+919316602536"
-                                        style="color: var(--stone); text-decoration: none; font-weight: 500;"
-                                        onclick="trackPhoneClick()">+91
-                                        9316602536</a>
-                                </div>
-                            </div>
-
-                            <div style="display: flex; align-items: start; gap: 1.5rem;">
-                                <div style="flex: 1;">
-                                    <h4>Email</h4>
-                                    <a href="mailto:fleurvine@outlook.com"
-                                        style="color: var(--stone); text-decoration: none; font-weight: 500;"
-                                        onclick="trackEmailClick()">fleurvine@outlook.com</a>
-                                </div>
-                            </div>
-
-                            <div style=" display: flex; align-items: start; gap: 1.5rem;">
-                                <div style="flex: 1;">
-                                    <h4>Business Hours</h4>
-                                    <p style="color: var(--stone); margin: 0; font-weight: 500;">
-                                        Mon–Sat, 9:00 AM – 6:00 PM</p>
-                                </div>
-                            </div>
-
-                            <div style="display: flex; align-items: start; gap: 1.5rem;">
-                                <div style="flex: 1;">
-                                    <h4>Location</h4>
-                                    <p style="color: var(--stone); margin: 0; font-weight: 500;">
-                                        Vadodara, Gujarat, India</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(107, 117, 102, 0.2);">
-                            <button class="cta-button" onclick="getQuote(0)">Get a Quote via WhatsApp</button>
+                    <div class="about-highlight">
+                        <blockquote>
+                            "You manage the event. We supply the flowers."
+                        </blockquote>
+                        <div class="quote-box">
+                            <h4>Direct Business Model</h4>
+                            <p>To maintain security for large-scale transactions, we operate on a
+                                <strong>Quote-to-Invoice</strong> basis. Human verification for every order ensures
+                                transparency.
+                            </p>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- ===========================
-         MODALS & FLOATING ELEMENTS
-         =========================== -->
-    <div id="toastContainer"></div>
+    <section class="section bg-dark" id="contact" style="padding-bottom: 0;">
+        <div class="container">
+            <div class="contact-wrapper reveal-up">
+                <div class="contact-info">
+                    <span class="subheading">Get in Touch</span>
+                    <h2>Start Your Order</h2>
+                    <p style="color: rgba(255,255,255,0.7); margin-bottom: 3rem;">For bulk flower supply and B2B
+                        enquiries only.</p>
 
-    <div class="whatsapp-loading" id="whatsappLoading">
-        <div class="whatsapp-loading-content">
-            <div class="whatsapp-spinner"></div>
-            <p style="color: var(--olive); font-weight: 500;">Opening WhatsApp...</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="icon">📞</span>
+                            <div>
+                                <label>Phone / WhatsApp</label>
+                                <a href="tel:+919316602536">+91 9316602536</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">✉️</span>
+                            <div>
+                                <label>Email</label>
+                                <a href="mailto:fleurvine@outlook.com">fleurvine@outlook.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">📍</span>
+                            <div>
+                                <label>Location</label>
+                                <span>Vadodara, Gujarat, India</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/919316602536" class="btn btn-primary" style="margin-top: 3rem;">Chat on
+                        WhatsApp</a>
+                </div>
+                <div class="contact-map glass-card"
+                    style="padding: 0; min-height: 400px; background: rgba(255,255,255,0.1);">
+                    <img src="footer1.png" alt="Flowers" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+
+            <footer class="main-footer">
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Fleur Vine. All rights reserved.</p>
+                    <p>Fresh-Cut Flowers for Events, Wholesale & Export Supply</p>
+                </div>
+            </footer>
         </div>
-    </div>
+    </section>
 
-    <div class="image-modal" id="imageModal">
-        <div class="image-modal-content">
-            <button class="image-modal-close" onclick="closeImageModal()">×</button>
-            <img id="modalImage" src="" alt="Product Image">
-        </div>
-    </div>
-
-    <!-- ===========================
-         FOOTER
-         =========================== -->
-    <footer>
-        <p>&copy; 2025 Fleur Vine. All rights reserved. | Fresh-Cut Flowers for Events, Wholesale & Export Supply</p>
-    </footer>
-
-    <!-- ===========================
-         JAVASCRIPT
-         =========================== -->
+    <a href="https://wa.me/919316602536" class="float-whatsapp" target="_blank">
+        <img src="whap.png" alt="WhatsApp">
+    </a>
     <script>
-        // ========================================
-        // CONFIGURATION & DATA
-        // ========================================
         const products = [
-            { id: 1, name: "Rose", image: "rose.jpeg", description: "Classic roses suitable for large-scale floral use" },
-            { id: 12, name: "Gerbera", image: "gerbera.jpeg", description: "Colorful gerberas suitable for large-scale floral use" },
-            { id: 13, name: "Chrysanthemum", image: "chrysanthemum.jpeg", description: "Spider-type chrysanthemums suitable for large-scale floral use" },
-            { id: 15, name: "Orchid", image: "orchids.jpeg", description: "Dendrobium orchids suitable for large-scale floral use" },
-            { id: 24, name: "Gypsophila", image: "gypsophila.jpeg", description: "Baby's breath suitable for large-scale floral use" }
+            { name: "Rose", image: "rose.jpeg", description: "Classic roses suitable for large-scale floral use" },
+            { name: "Gerbera", image: "gerbera.jpeg", description: "Colorful gerberas suitable for large-scale floral use" },
+            { name: "Chrysanthemum", image: "chrysanthemum.jpeg", description: "Spider-type chrysanthemums suitable for large-scale floral use" },
+            { name: "Orchid", image: "orchids.jpeg", description: "Dendrobium orchids suitable for large-scale floral use" },
+            { name: "Gypsophila", image: "gypsophila.png", description: "Baby's breath suitable for large-scale floral use" }
         ];
-
-        const whatsappNumber = "919316602536";
-
-        // ========================================
-        // INITIALIZATION
-        // ========================================
-        document.addEventListener('DOMContentLoaded', function () {
-            const menuToggle = document.getElementById('menuToggle');
-            if (menuToggle) {
-                menuToggle.addEventListener('click', toggleMobileMenu);
-            }
-
-            renderProducts();
-
-            // Image modal event listeners
-            const modal = document.getElementById('imageModal');
-            modal.addEventListener('click', function (e) {
-                if (e.target === modal) closeImageModal();
+        const productsGrid = document.getElementById('productsGrid');
+        if (productsGrid) {
+            products.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card reveal-up';
+                card.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="product-img">
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <span style="color: var(--gold); font-size: 0.85rem; font-weight: 600;">INQUIRE NOW</span>
+                    </div>
+                `;
+                card.addEventListener('click', () => {
+                    window.open(`https://wa.me/919316602536?text=Hi, I am interested in bulk orders for ${product.name}`, '_blank');
+                });
+                productsGrid.appendChild(card);
             });
+        }
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const desktopNav = document.getElementById('desktopNav');
 
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape') closeImageModal();
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('active');
+                desktopNav.classList.toggle('active');
+                document.body.style.overflow = desktopNav.classList.contains('active') ? 'hidden' : '';
+            });
+        }
+        document.querySelectorAll('#desktopNav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                desktopNav.classList.remove('active');
+                document.body.style.overflow = '';
             });
         });
+        const header = document.getElementById('mainHeader');
+        let lastScrollY = window.scrollY;
+        const scrollThreshold = 10;
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            if (currentScrollY < 100) {
+                header.classList.remove('header-hidden');
+            } else if (Math.abs(currentScrollY - lastScrollY) > scrollThreshold) {
+                if (currentScrollY > lastScrollY) {
+                    header.classList.add('header-hidden');
+                } else {
+                    header.classList.remove('header-hidden');
+                }
+            }
 
-        // ========================================
-        // NAVIGATION FUNCTIONS
-        // ========================================
-        function toggleMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            mobileNav.classList.toggle('active');
-        }
+            lastScrollY = currentScrollY;
+        }, { passive: true });
 
-        function closeMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            mobileNav.classList.remove('active');
-        }
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
 
-        function showPage(pageId) {
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
-            // Close mobile menu when navigating
-            closeMobileMenu();
+        setTimeout(() => {
+            document.querySelectorAll('.reveal-text, .reveal-card, .reveal-up').forEach(el => {
+                observer.observe(el);
+            });
+        }, 100);
+    </script>
+    <script type="module">
+        import * as THREE from "https://esm.sh/three@0.160.1";
+        import { OrbitControls } from "https://esm.sh/three@0.160.1/examples/jsm/controls/OrbitControls.js";
+        import { GLTFLoader } from "https://esm.sh/three@0.160.1/examples/jsm/loaders/GLTFLoader.js";
 
-            // Track page view
-            if (typeof gtag !== 'undefined') {
-                trackPageView(pageId);
+        const container = document.getElementById("app");
+        const statusEl = document.getElementById("status");
+        const isFileProtocol = window.location.protocol === "file:";
+
+        const scene = new THREE.Scene();
+        statusEl.textContent = isFileProtocol
+            ? "Opened with file://. Start a local server and open http://localhost:5500/rose_3d/rose-viewer.html"
+            : "Initializing viewer...";
+
+        window.addEventListener("error", (event) => {
+            statusEl.textContent = `Viewer error: ${event.message || "Unknown error"}`;
+        });
+        window.addEventListener("unhandledrejection", (event) => {
+            const msg = event.reason?.message || String(event.reason || "Unknown error");
+            statusEl.textContent = `Viewer error: ${msg}`;
+        });
+
+        const rect = container.getBoundingClientRect();
+        const w = rect.width || 80;
+        const h = rect.height || 80;
+
+        const camera = new THREE.PerspectiveCamera(
+            45,
+            w / h,
+            0.1,
+            100
+        );
+        camera.position.set(0, 0.7, 2.5);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setSize(w, h);
+        renderer.outputColorSpace = THREE.SRGBColorSpace;
+        container.appendChild(renderer.domElement);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enabled = false;
+        controls.enableDamping = true;
+        controls.enablePan = false;
+        controls.target.set(0, 0.3, 0);
+
+        const hemi = new THREE.HemisphereLight(0xfff4e8, 0x5f3a38, 1.15);
+        scene.add(hemi);
+
+        const dir = new THREE.DirectionalLight(0xffffff, 1.2);
+        dir.position.set(2.5, 3, 2);
+        scene.add(dir);
+
+        const fill = new THREE.DirectionalLight(0xffe4e4, 0.65);
+        fill.position.set(-2, 1.5, -1.5);
+        scene.add(fill);
+
+        let model;
+        let spinPivot;
+        const spinSpeed = Math.PI / 3;
+        const loader = new GLTFLoader();
+        loader.setPath("rose_3d/");
+        const textureLoader = new THREE.TextureLoader();
+
+        function forEachMaterial(mesh, fn) {
+            if (Array.isArray(mesh.material)) {
+                mesh.material = mesh.material.map((m) => fn(m));
+            } else {
+                mesh.material = fn(mesh.material);
             }
         }
 
-        function goHome() {
-            showPage('home');
+        function modelHasAnyColorMap(root) {
+            let hasMap = false;
+            root.traverse((obj) => {
+                if (!obj.isMesh || hasMap) return;
+                const mats = Array.isArray(obj.material) ? obj.material : [obj.material];
+                for (const mat of mats) {
+                    if (mat && mat.map) {
+                        hasMap = true;
+                        break;
+                    }
+                }
+            });
+            return hasMap;
         }
 
-        // ========================================
-        // PRODUCT RENDERING
-        // ========================================
-        function renderProducts() {
-            const productsGrid = document.getElementById('productsGrid');
-
-            productsGrid.innerHTML = products.map(product => `
-                <div class="product-card">
-                    <div class="product-image" 
-                         style="background-image: url('${product.image}'); background-size: cover; background-position: center;" 
-                         onclick="openImageModal('${product.image}', '${product.name}')">
-                    </div>
-                    <div class="product-name">${product.name}</div>
-                    <p class="product-description">${product.description}</p>
-                    <button class="add-to-cart" onclick="getQuote(${product.id})">
-                        Get a Quote
-                    </button>
-                </div>
-            `).join('');
+        function normalizeExistingMaps(root) {
+            root.traverse((obj) => {
+                if (!obj.isMesh) return;
+                forEachMaterial(obj, (mat) => {
+                    if (!mat) return mat;
+                    if (mat.map) mat.map.colorSpace = THREE.SRGBColorSpace;
+                    mat.side = THREE.DoubleSide;
+                    mat.needsUpdate = true;
+                    return mat;
+                });
+            });
         }
 
-        // ========================================
-        // IMAGE MODAL FUNCTIONS
-        // ========================================
-        function openImageModal(imageSrc, productName) {
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-
-            modalImage.src = imageSrc;
-            modalImage.alt = productName;
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+        function applyDiffuseFallback(root, diffuseTexture) {
+            root.traverse((obj) => {
+                if (!obj.isMesh) return;
+                forEachMaterial(obj, (mat) => {
+                    if (!mat) return mat;
+                    if (!mat.map) mat.map = diffuseTexture;
+                    if (mat.color && mat.color.set) mat.color.set(0xffffff);
+                    if ("metalness" in mat) mat.metalness = 0.0;
+                    if ("roughness" in mat) mat.roughness = 0.85;
+                    mat.side = THREE.DoubleSide;
+                    mat.needsUpdate = true;
+                    return mat;
+                });
+            });
         }
 
-        function closeImageModal() {
-            const modal = document.getElementById('imageModal');
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
+        if (!isFileProtocol) {
+            const loadingHintTimeout = window.setTimeout(() => {
+                statusEl.textContent =
+                    "Still loading... check server is running and internet access is available for CDN scripts.";
+            }, 8000);
+
+            loader.load(
+                "scene.gltf",
+                (gltf) => {
+                    window.clearTimeout(loadingHintTimeout);
+                    model = gltf.scene;
+                    spinPivot = new THREE.Group();
+                    scene.add(spinPivot);
+                    spinPivot.add(model);
+
+                    const box = new THREE.Box3().setFromObject(model);
+                    const size = box.getSize(new THREE.Vector3());
+                    const center = box.getCenter(new THREE.Vector3());
+                    model.position.x -= center.x;
+                    model.position.z -= center.z;
+                    model.position.y -= box.min.y;
+                    const maxDim = Math.max(size.x, size.y, size.z) || 1;
+                    const fov = (camera.fov * Math.PI) / 180;
+                    const fitDist = maxDim / (2 * Math.tan(fov / 2));
+                    camera.position.set(0, size.y * 0.75, fitDist * 1.45);
+                    camera.near = maxDim / 100;
+                    camera.far = maxDim * 100;
+                    camera.updateProjectionMatrix();
+                    controls.target.set(0, size.y * 0.5, 0);
+                    controls.update();
+
+                    if (modelHasAnyColorMap(model)) {
+                        normalizeExistingMaps(model);
+                        statusEl.textContent = "Rose model loaded. Drag to rotate, scroll to zoom.";
+                    } else {
+                        statusEl.textContent = "Model loaded, applying rose texture...";
+                        textureLoader.load(
+                            "rose_3d/textures/material_diffuse.png",
+                            (tex) => {
+                                tex.colorSpace = THREE.SRGBColorSpace;
+                                tex.flipY = false;
+                                applyDiffuseFallback(model, tex);
+                                statusEl.textContent = "Rose model loaded. Drag to rotate, scroll to zoom.";
+                            },
+                            undefined,
+                            (texErr) => {
+                                console.error(texErr);
+                                statusEl.textContent =
+                                    "Model loaded, but texture failed. Check rose_3d/textures/material_diffuse.png";
+                            }
+                        );
+                    }
+                },
+                (xhr) => {
+                    if (!xhr.total) return;
+                    const pct = Math.round((xhr.loaded / xhr.total) * 100);
+                    statusEl.textContent = `Loading rose model... ${pct}%`;
+                },
+                (err) => {
+                    window.clearTimeout(loadingHintTimeout);
+                    console.error(err);
+                    const msg = err?.message || String(err || "Unknown error");
+                    statusEl.textContent = `Failed to load model: ${msg}`;
+                }
+            );
         }
 
-        // ========================================
-        // NOTIFICATION FUNCTIONS
-        // ========================================
-        function showToast(message, type = 'success') {
-            const toastContainer = document.getElementById('toastContainer');
-            const toast = document.createElement('div');
-            toast.className = `toast ${type}`;
-            toast.innerHTML = `
-                <span>${type === 'success' ? '✓' : 'ℹ'}</span>
-                <span>${message}</span>
-            `;
+        window.addEventListener("resize", () => {
+            const rect = container.getBoundingClientRect();
+            const w = rect.width || 80;
+            const h = rect.height || 80;
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        });
 
-            toastContainer.appendChild(toast);
-            setTimeout(() => toast.classList.add('show'), 100);
-
-            setTimeout(() => {
-                toast.classList.remove('show');
-                setTimeout(() => toastContainer.removeChild(toast), 300);
-            }, 3000);
-        }
-
-        function showWhatsAppLoading() {
-            const loading = document.getElementById('whatsappLoading');
-            loading.classList.add('show');
-            setTimeout(() => loading.classList.remove('show'), 2000);
-        }
-
-        // ========================================
-        // WHATSAPP FUNCTIONS
-        // ========================================
-        function getQuote(productId) {
-            // Track analytics
-            if (typeof gtag !== 'undefined') {
-                trackWhatsAppClick('get_quote_button');
+        const clock = new THREE.Clock();
+        function animate() {
+            requestAnimationFrame(animate);
+            const dt = clock.getDelta();
+            if (spinPivot) {
+                spinPivot.rotation.y += spinSpeed * dt;
             }
-
-            showWhatsAppLoading();
-            const message = `Hello, I'm interested in bulk flower pricing.\nPlease share quotation and availability details.`;
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
+            controls.update(dt);
+            renderer.render(scene, camera);
         }
-
-        function openWhatsApp() {
-            // Track analytics
-            if (typeof gtag !== 'undefined') {
-                trackWhatsAppClick('general_inquiry');
-            }
-
-            showWhatsAppLoading();
-            const message = "Hi! I'm interested in your flowers. Could you please help me with my floral needs?";
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
+        animate();
     </script>
 </body>
 
