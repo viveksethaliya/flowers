@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wedding Flower Trends & Decor Ideas | Fleur Vine Blog</title>
+
+    <meta name="description"
+        content="Explore wedding flower trends, bulk sourcing tips, floral decor inspiration and event industry insights. Discover premium wholesale flowers for Indian weddings.">
+
+    <link rel="canonical" href="https://fleurvine.in/blog/blog.html" />
+
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Wedding Flower Trends & Decor Ideas | Fleur Vine Blog">
+    <meta property="og:description"
+        content="Floral inspiration, wedding trends, and bulk flower sourcing insights for decorators and event planners.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fleurvine.in/blog/blog.html">
+    <meta property="og:image" content="https://fleurvine.in/logo.webp">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../logo.webp">
+
+    <title>Blog - Floral Insights | Fleur Vine</title>
+
+    <style>
+        :root {
+            --forest: #1a2e1a;
+            --forest-light: #2c4a2c;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --cream: #f9f7f2;
+            --white: #ffffff;
+            --charcoal: #1c1c1c;
+            --font-display: 'Cormorant Garamond', serif;
+            --font-body: 'Manrope', sans-serif;
+            --font-logo: 'Alice', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: clip;
+            padding-top: 80px;
+            /* Space for fixed header */
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--forest);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--forest);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-primary:hover {
+            color: var(--gold);
+        }
+
+        .btn-primary:hover::before {
+            width: 100%;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.2rem 0;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            padding: 0.8rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-logo);
+            font-size: 2rem;
+            color: var(--forest);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--forest);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1001;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--forest);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: flex;
+            }
+
+            #desktopNav {
+                display: flex;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.4s ease;
+                z-index: 1000;
+                padding-top: 5rem;
+            }
+
+            #desktopNav.active {
+                right: 0;
+            }
+
+            #desktopNav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            #desktopNav a {
+                font-size: 1.5rem;
+            }
+
+            .mobile-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 6px);
+            }
+
+            .mobile-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -6px);
+            }
+
+            .nav-cta {
+                display: none;
+            }
+        }
+
+        .blog-header {
+            padding: 6rem 0 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f9f7f2 0%, #ebe5da 100%);
+            margin-bottom: 4rem;
+        }
+
+        .blog-header h1 {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            color: var(--forest);
+            margin-bottom: 1rem;
+        }
+
+        .blog-header p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 6rem;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            position: relative;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-img {
+            height: 240px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .blog-tag {
+            color: var(--gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            color: var(--forest);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .blog-content p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 1rem;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .main-footer {
+            background: var(--forest);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem 0;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            margin: 0 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="mainHeader">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">Fleur <span>✦</span> Vine</a>
+            <button class="mobile-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="desktopNav">
+                <ul>
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#products">Collection</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="../index.html#logistics">Logistics</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="../index.html#contact" class="btn btn-primary nav-cta"
+                style="padding: 0.7rem 1.8rem; font-size: 0.9rem;">Get Quote</a>
+        </div>
+    </header>
+
+    <div class="blog-header">
+        <div class="container">
+            <h1>Floral Insights</h1>
+            <p>Industry news, trends, and advice on bulk flower procurement for event professionals.</p>
+        </div>
+    </div>
+
+    <section class="container">
+        <div class="blog-grid">
+            <!-- Article 1 -->
+            <a href="top-5-wedding-flowers-2026.html" class="blog-card">
+                <div style="overflow: hidden;">
+                    <img src="../rose.jpeg" alt="Roses" class="blog-img">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-tag">Trends</span>
+                    <h3>Top 5 Flowers for Weddings in 2026</h3>
+                    <p>Discover which floral varieties are dominating the wedding decor scene this year and how to
+                        source them in bulk efficiently.</p>
+                    <div class="blog-meta">
+                        <span>By Fleur Vine Team</span>
+                        <span>Mar 1, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+
+            <!-- <a href="#" class="blog-card">
+                <div style="overflow: hidden;">
+                    <img src="../view-ice-cube-with-flower.png" alt="Cold chain" class="blog-img">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-tag">Logistics</span>
+                    <h3>The Importance of Cold-Chain Handling</h3>
+                    <p>Why maintaining temperature control from farm to venue is critical for maximizing vase life and
+                        bloom quality.</p>
+                    <div class="blog-meta">
+                        <span>By Fleur Vine Team</span>
+                        <span>Feb 20, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+            
+            <a href="#" class="blog-card">
+                <div style="overflow: hidden;">
+                    <img src="../gerbera.jpeg" alt="Gerbera" class="blog-img">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-tag">Procurement</span>
+                    <h3>How to Calculate Stem Counts for Large Stages</h3>
+                    <p>A decorator's guide to accurately estimating flower quantities for massive grand stage setups
+                        without over-ordering.</p>
+                    <div class="blog-meta">
+                        <span>By Fleur Vine Team</span>
+                        <span>Feb 12, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+            
+            <a href="#" class="blog-card">
+                <div style="overflow: hidden;">
+                    <img src="../white lilies.jpg" alt="Lilies" class="blog-img">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-tag">Varieties</span>
+                    <h3>Lilies vs. Orchids: Which offers better volume?</h3>
+                    <p>A cost and coverage comparison for event planners looking to maximize aesthetic impact on a
+                        budget.</p>
+                    <div class="blog-meta">
+                        <span>By Fleur Vine Team</span>
+                        <span>Jan 28, 2026</span>
+                    </div>
+                </div>
+            </a> -->
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Fleur Vine. All rights reserved.</p>
+            <p>Fresh-Cut Flowers for Events, Wholesale & Export Supply</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const desktopNav = document.getElementById('desktopNav');
+
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('active');
+                desktopNav.classList.toggle('active');
+                document.body.style.overflow = desktopNav.classList.contains('active') ? 'hidden' : '';
+            });
+        }
+        document.querySelectorAll('#desktopNav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                desktopNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+</body>
+
+</html>

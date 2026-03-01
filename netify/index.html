@@ -8,7 +8,6 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="canonical" href="https://fleurvine.in/">
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -417,8 +416,9 @@
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2.5rem;
-            max-width: 600px;
             opacity: 0.9;
+            max-width: 600px;
+            opacity: 0;
             animation: fadeUp 0.8s ease forwards 0.6s;
         }
 
@@ -721,6 +721,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             position: relative;
+            group-hover: hidden;
             cursor: pointer;
         }
 
@@ -1185,7 +1186,6 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#products">Collection</a></li>
-                    <li><a href="blog/blog.html">Blog</a></li>
                     <li><a href="#logistics">Logistics</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -1460,24 +1460,21 @@
 
                     <div class="contact-details">
                         <div class="contact-item">
-                            <span class="icon"><img src="svg/call-svgrepo-com.svg" alt="Phone"
-                                    style="width: 24px; height: 24px; filter: invert(1);"></span>
+                            <span class="icon">📞</span>
                             <div>
                                 <label>Phone / WhatsApp</label>
                                 <a href="tel:+919316602536">+91 9316602536</a>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <span class="icon"><img src="svg/email-8-svgrepo-com.svg" alt="Email"
-                                    style="width: 24px; height: 24px; filter: invert(1);"></span>
+                            <span class="icon">✉️</span>
                             <div>
                                 <label>Email</label>
                                 <a href="mailto:fleurvine@outlook.com">fleurvine@outlook.com</a>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <span class="icon"><img src="svg/location-svgrepo-com.svg" alt="Location"
-                                    style="width: 24px; height: 24px; filter: invert(1);"></span>
+                            <span class="icon">📍</span>
                             <div>
                                 <label>Location</label>
                                 <span>Vadodara, Gujarat, India</span>
@@ -1595,6 +1592,7 @@
     </script>
     <script type="module">
         import * as THREE from "https://esm.sh/three@0.160.1";
+        import { OrbitControls } from "https://esm.sh/three@0.160.1/examples/jsm/controls/OrbitControls.js";
         import { GLTFLoader } from "https://esm.sh/three@0.160.1/examples/jsm/loaders/GLTFLoader.js";
 
         const container = document.getElementById("app");
@@ -1632,6 +1630,12 @@
         renderer.outputColorSpace = THREE.SRGBColorSpace;
         container.appendChild(renderer.domElement);
 
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enabled = false;
+        controls.enableDamping = true;
+        controls.enablePan = false;
+        controls.target.set(0, 0.3, 0);
+
         const hemi = new THREE.HemisphereLight(0xfff4e8, 0x5f3a38, 1.15);
         scene.add(hemi);
 
@@ -1647,7 +1651,7 @@
         let spinPivot;
         const spinSpeed = Math.PI / 3;
         const loader = new GLTFLoader();
-        loader.setPath("./rose_3d/");
+        loader.setPath("rose_3d/");
         const textureLoader = new THREE.TextureLoader();
 
         function forEachMaterial(mesh, fn) {
@@ -1730,6 +1734,8 @@
                     camera.near = maxDim / 100;
                     camera.far = maxDim * 100;
                     camera.updateProjectionMatrix();
+                    controls.target.set(0, size.y * 0.5, 0);
+                    controls.update();
 
                     if (modelHasAnyColorMap(model)) {
                         normalizeExistingMaps(model);
@@ -1737,7 +1743,7 @@
                     } else {
                         statusEl.textContent = "Model loaded, applying rose texture...";
                         textureLoader.load(
-                            "./rose_3d/textures/material_diffuse.png",
+                            "rose_3d/textures/material_diffuse.png",
                             (tex) => {
                                 tex.colorSpace = THREE.SRGBColorSpace;
                                 tex.flipY = false;
@@ -1783,6 +1789,7 @@
             if (spinPivot) {
                 spinPivot.rotation.y += spinSpeed * dt;
             }
+            controls.update(dt);
             renderer.render(scene, camera);
         }
         animate();
