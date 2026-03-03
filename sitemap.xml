@@ -7,12 +7,17 @@
   </url>
   <url>
     <loc>https://fleurvine.in/blog/blog.html</loc>
-    <lastmod>2026-03-01</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://fleurvine.in/blog/top-5-wedding-flowers-2026.html</loc>
     <lastmod>2026-01-12</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://fleurvine.in/blog/roses-vs-gerbera-vs-orchids.html</loc>
+    <lastmod>2026-03-03</lastmod>
     <priority>1.0</priority>
   </url>
 </urlset>
