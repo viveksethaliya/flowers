@@ -24,6 +24,31 @@ if (productsGrid) {
         productsGrid.appendChild(card);
     });
 }
+
+const fillers = [
+    { name: "Eucalyptus", image: "media/eucalyptus.jpeg", description: "Premium silver dollar and baby blue eucalyptus leaves" },
+    { name: "Ruscus", image: "media/ruscus.jpeg", description: "Long-lasting, deep green Italian ruscus stems for elegant structure" },
+    { name: "Ferns", image: "media/ferns.jpeg", description: "Delicate and feathery ferns to add texture and volume" }
+];
+const fillersGrid = document.getElementById('fillersGrid');
+if (fillersGrid) {
+    fillers.forEach(filler => {
+        const card = document.createElement('div');
+        card.className = 'product-card reveal-up';
+        card.innerHTML = `
+                    <img src="${filler.image}" alt="${filler.name}" class="product-img">
+                    <div class="product-info">
+                        <h3>${filler.name}</h3>
+                        <p>${filler.description}</p>
+                        <span style="color: var(--gold); font-size: 0.85rem; font-weight: 600;">INQUIRE NOW</span>
+                    </div>
+                `;
+        card.addEventListener('click', () => {
+            window.open(`https://wa.me/919316602536?text=Hi, I am interested in bulk orders for ${filler.name}`, '_blank');
+        });
+        fillersGrid.appendChild(card);
+    });
+}
 const mobileToggle = document.querySelector('.mobile-toggle');
 const desktopNav = document.getElementById('desktopNav');
 
