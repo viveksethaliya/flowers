@@ -55,6 +55,10 @@
       }
     }
     </script>
+
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https:; img-src 'self' data: https:;">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 </head>
 
 <body>
@@ -206,8 +210,8 @@
         </div>
     </section>
 
-    <a href="https://wa.me/919316602536" class="float-whatsapp" target="_blank">
-        <img src="media/whap.png" alt="WhatsApp">
+    <a href="https://wa.me/919316602536" class="float-whatsapp" target="_blank" rel="noopener noreferrer">
+        <img src="media/whap.png" alt="WhatsApp" width="1000" height="1000">
     </a>
     <script type="module" src="main.js"></script>
     
