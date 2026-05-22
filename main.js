@@ -1,8 +1,8 @@
 const products = [
-    { name: "Rose", image: "media/rose1.jpeg", description: "Classic roses suitable for large-scale floral use" },
-    { name: "Gerbera", image: "media/gerbera.jpeg", description: "Colorful gerberas suitable for large-scale floral use" },
+    { name: "Rose", image: "media/rose1.webp", description: "Classic roses suitable for large-scale floral use" },
+    { name: "Gerbera", image: "media/gerbera.webp", description: "Colorful gerberas suitable for large-scale floral use" },
     { name: "Chrysanthemum", image: "media/chrysanthemum.webp", description: "Spider-type chrysanthemums suitable for large-scale floral use" },
-    { name: "Orchid", image: "media/orchids.jpeg", description: "Dendrobium orchids suitable for large-scale floral use" },
+    { name: "Orchid", image: "media/orchids.webp", description: "Dendrobium orchids suitable for large-scale floral use" },
     { name: "Gypsophila", image: "media/gypsophila.webp", description: "Baby's breath suitable for large-scale floral use" }
 ];
 const productsGrid = document.getElementById('productsGrid');
