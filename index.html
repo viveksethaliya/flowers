@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 
 <head>
     <meta charset="UTF-8">
@@ -22,6 +22,8 @@
         content="Fleur Vine is a leading B2B supplier of fresh-cut wholesale flowers in India. Ideal for weddings, mandap decorations, corporate events, and bulk export.">
 
     <link rel="canonical" href="https://www.fleurvine.in/" />
+    <link rel="alternate" hreflang="en-IN" href="https://www.fleurvine.in/">
+    <link rel="alternate" hreflang="x-default" href="https://www.fleurvine.in/">
     <meta name="keywords"
         content="wholesale flowers, bulk flowers, fresh cut flowers, wedding flowers wholesale, flower supplier india, flowers for events, bulk roses, florist flowers wholesale, mandap decoration flowers, flower wholesaler, flowers for decorators, event flower supply">
     <meta name="author" content="Fleur Vine">
@@ -53,22 +55,38 @@
 
     <link rel="stylesheet" href="/styles.css">
     <script type="application/ld+json">
-        {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Fleur Vine",
-        "url": "https://www.fleurvine.in",
-        "logo": "https://www.fleurvine.in/fvc/logo.webp",
-        "description": "Wholesale bulk flower supplier in India for weddings, events, decorators and floral installations.",
-        "serviceType": "Wholesale Bulk Flower Supply",
-        "sameAs": [
-            "https://www.instagram.com/fleurvine.in/"
-        ],
-        "areaServed": {
-            "@type": "Country",
-            "name": "India"
-            }
-        }
+    {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://www.fleurvine.in/#organization",
+  "name": "Fleur Vine",
+  "url": "https://www.fleurvine.in",
+  "logo": "https://www.fleurvine.in/fvc/logo.webp",
+  "image": "https://www.fleurvine.in/media/logo.webp",
+  "description": "Wholesale bulk flower supplier in India for weddings, events, decorators and floral installations.",
+  "serviceType": "Wholesale Bulk Flower Supply",
+  "telephone": "+919316602536",
+  "email": "fleurvine@outlook.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Vadodara",
+    "addressRegion": "Gujarat",
+    "addressCountry": "IN"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    }
+  ],
+  "sameAs": ["https://www.instagram.com/fleurvine.in/"],
+  "areaServed": {
+    "@type": "Country",
+    "name": "India"
+  }
+}
     </script>
 
     <!-- Security Headers -->
@@ -435,7 +453,7 @@
                                     style="width: 24px; height: 24px; filter: invert(1);"></span>
                             <div>
                                 <label>Phone / WhatsApp</label>
-                                <a href="tel:+919316602536">+91 9316602536</a>
+                                <a href="tel:+919316602536">+91 93166 02536</a>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -470,7 +488,15 @@
                 <div class="footer-bottom">
                     <p>&copy; 2026 Fleur Vine. All rights reserved.</p>
                     <p>Fresh-Cut Flowers for Events, Wholesale & Export Supply</p>
-                </div>
+                        <address itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"
+            style="font-style:normal;font-size:0.85rem;opacity:0.7;margin-top:0.5rem;">
+            <span itemprop="addressLocality">Vadodara</span>,
+            <span itemprop="addressRegion">Gujarat</span>,
+            <span itemprop="addressCountry">India</span>
+            &nbsp;&middot;&nbsp;
+            <a href="tel:+919316602536" itemprop="telephone">+91 93166 02536</a>
+        </address>
+</div>
             </footer>
         </div>
     </section>

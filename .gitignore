@@ -1,8 +1,6 @@
 old
 New Folder
 netify
-blogidea.txt
-blogtemplate.txt
 junk
 fix_seo_links.js
 refactor_others.js
@@ -11,3 +9,12 @@ seo_check.js
 update_webp_links.js
 issues_overview_report.csv
 fleurvine-seo-strategy.md
+
+# Helper scripts and scratch files — never commit to site root
+*.py
+__pycache__/
+task.md
+
+# Text outputs (but NOT robots.txt which is a real site asset)
+*.txt
+!robots.txt
